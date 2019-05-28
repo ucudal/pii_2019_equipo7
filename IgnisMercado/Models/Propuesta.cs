@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace IgnisMercado.Models
 {
-    public class Propuesta//comentario
+    public class Propuesta
     {
         public string NivelDeDificultad { get; set; }
         public string EstimadoPorHora { get; set; }
