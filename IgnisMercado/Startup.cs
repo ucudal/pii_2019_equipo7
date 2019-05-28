@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using IgnisMercado.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace IgnisMercado
 {
@@ -30,7 +32,8 @@ namespace IgnisMercado
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
+            services.AddDbContext<RazorPagesPropuestaContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("PropuestaContext")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
