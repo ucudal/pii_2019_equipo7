@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using IgnisMercado.Models;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace IgnisMercado
 {
     public class Startup
@@ -34,6 +35,9 @@ namespace IgnisMercado
             });
             services.AddDbContext<RazorPagesPropuestaContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("PropuestaContext")));
+            
+            services.AddDbContext<RazorPagesFeedbackContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("FeedbackContext")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
