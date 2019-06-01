@@ -27,6 +27,20 @@ namespace IgnisMercado.Migrations
                     b.ToTable("Area");
                 });
 
+            modelBuilder.Entity("IgnisMercado.Models.Competencia", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("NivelBasicoOAvanzado");
+
+                    b.Property<string>("PrecioPorHora");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Competencia");
+                });
+
             modelBuilder.Entity("IgnisMercado.Models.Feedback", b =>
                 {
                     b.Property<int>("ID")

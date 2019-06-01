@@ -14,5 +14,7 @@ namespace IgnisMercado.Models
         public DbSet<IgnisMercado.Models.Feedback> Feedback { get; set; }
 
         public DbSet<IgnisMercado.Models.Area> Area { get; set; }
+
+        public DbSet<IgnisMercado.Models.Competencia> Competencia { get; set; }
     }
 }

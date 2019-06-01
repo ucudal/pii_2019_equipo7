@@ -20,6 +20,20 @@ namespace IgnisMercado.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Competencia",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    NivelBasicoOAvanzado = table.Column<string>(nullable: true),
+                    PrecioPorHora = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Competencia", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Feedback",
                 columns: table => new
                 {
@@ -55,6 +69,9 @@ namespace IgnisMercado.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Area");
+
+            migrationBuilder.DropTable(
+                name: "Competencia");
 
             migrationBuilder.DropTable(
                 name: "Feedback");

@@ -2769,6 +2769,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Pages\\Competencias\\Delete.cshtml",
+      "TargetPath": "Pages\\Competencias\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Pages\\Feedbacks\\Delete.cshtml",
       "TargetPath": "Pages\\Feedbacks\\Delete.cshtml",
       "FileKind": "mvc"
@@ -2784,6 +2789,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Pages\\Competencias\\Index.cshtml",
+      "TargetPath": "Pages\\Competencias\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Pages\\Areas\\Index.cshtml",
       "TargetPath": "Pages\\Areas\\Index.cshtml",
       "FileKind": "mvc"
@@ -2791,6 +2801,11 @@
     {
       "FilePath": "Pages\\Feedbacks\\Details.cshtml",
       "TargetPath": "Pages\\Feedbacks\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Pages\\Competencias\\Details.cshtml",
+      "TargetPath": "Pages\\Competencias\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2859,6 +2874,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Pages\\Competencias\\Edit.cshtml",
+      "TargetPath": "Pages\\Competencias\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Pages\\Shared\\_CookieConsentPartial.cshtml",
       "TargetPath": "Pages\\Shared\\_CookieConsentPartial.cshtml",
       "FileKind": "mvc"
@@ -2871,6 +2891,11 @@
     {
       "FilePath": "Pages\\Feedbacks\\Index.cshtml",
       "TargetPath": "Pages\\Feedbacks\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Pages\\Competencias\\Create.cshtml",
+      "TargetPath": "Pages\\Competencias\\Create.cshtml",
       "FileKind": "mvc"
     }
   ]
