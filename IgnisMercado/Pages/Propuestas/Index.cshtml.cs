@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using IgnisMercado.Models;
 
-namespace RazorPagesMovie.Pages.Movies
+namespace RazorPagesMovie.Pages.Propuestas
 {
     public class IndexModel : PageModel
     {
@@ -18,11 +18,11 @@ namespace RazorPagesMovie.Pages.Movies
             _context = context;
         }
 
-        public IList<Movie> Movie { get;set; }
+        public IList<Propuesta> Propuesta { get;set; }
 
         public async Task OnGetAsync()
         {
-            Movie = await _context.Movie.ToListAsync();
+            Propuesta = await _context.Propuesta.ToListAsync();
         }
     }
 }

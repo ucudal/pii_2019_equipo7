@@ -9,8 +9,8 @@ using RazorPagesMovie.Areas.Identity.Data;
 namespace RazorPagesMovie.Migrations.RazorPagesMovieIdentityDb
 {
     [DbContext(typeof(RazorPagesMovieIdentityDbContext))]
-    [Migration("20190518234940_CustomUserData")]
-    partial class CustomUserData
+    [Migration("20190601223407_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
