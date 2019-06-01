@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Identity;
 
 namespace RazorPagesMovie.Areas.Identity.Data
 {
-    // Add profile data for application users by adding properties to the RazorPagesMovieUser class
-    public class RazorPagesMovieUser : IdentityUser
+    // Add profile data for application users by adding properties to the RazorPagesUser class
+    public class RazorPagesUser : IdentityUser
     {
         [PersonalData]
         public string Name { get; set; }

@@ -1,5 +1,5 @@
 @page
-@model RazorPagesMovie.Areas.Identity.Pages.RazorPagesMovieUsers.EditModel
+@model RazorPagesMovie.Areas.Identity.Pages.RazorPagesUsers.EditModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -7,92 +7,92 @@
 
 <h1>Edit</h1>
 
-<h4>RazorPagesMovieUser</h4>
+<h4>RazorPagesUser</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="RazorPagesMovieUser.Name" class="control-label"></label>
-                <input asp-for="RazorPagesMovieUser.Name" class="form-control" />
-                <span asp-validation-for="RazorPagesMovieUser.Name" class="text-danger"></span>
+                <label asp-for="RazorPagesUser.Name" class="control-label"></label>
+                <input asp-for="RazorPagesUser.Name" class="form-control" />
+                <span asp-validation-for="RazorPagesUser.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RazorPagesMovieUser.DOB" class="control-label"></label>
-                <input asp-for="RazorPagesMovieUser.DOB" class="form-control" />
-                <span asp-validation-for="RazorPagesMovieUser.DOB" class="text-danger"></span>
+                <label asp-for="RazorPagesUser.DOB" class="control-label"></label>
+                <input asp-for="RazorPagesUser.DOB" class="form-control" />
+                <span asp-validation-for="RazorPagesUser.DOB" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="RazorPagesMovieUser.Id" />
+            <input type="hidden" asp-for="RazorPagesUser.Id" />
             <div class="form-group">
-                <label asp-for="RazorPagesMovieUser.UserName" class="control-label"></label>
-                <input asp-for="RazorPagesMovieUser.UserName" class="form-control" />
-                <span asp-validation-for="RazorPagesMovieUser.UserName" class="text-danger"></span>
+                <label asp-for="RazorPagesUser.UserName" class="control-label"></label>
+                <input asp-for="RazorPagesUser.UserName" class="form-control" />
+                <span asp-validation-for="RazorPagesUser.UserName" class="text-danger"></span>
             </div>
             <!-- <div class="form-group">
-                <label asp-for="RazorPagesMovieUser.NormalizedUserName" class="control-label"></label>
-                <input asp-for="RazorPagesMovieUser.NormalizedUserName" class="form-control" />
-                <span asp-validation-for="RazorPagesMovieUser.NormalizedUserName" class="text-danger"></span>
+                <label asp-for="RazorPagesUser.NormalizedUserName" class="control-label"></label>
+                <input asp-for="RazorPagesUser.NormalizedUserName" class="form-control" />
+                <span asp-validation-for="RazorPagesUser.NormalizedUserName" class="text-danger"></span>
             </div> -->
             <div class="form-group">
-                <label asp-for="RazorPagesMovieUser.Email" class="control-label"></label>
-                <input asp-for="RazorPagesMovieUser.Email" class="form-control" />
-                <span asp-validation-for="RazorPagesMovieUser.Email" class="text-danger"></span>
+                <label asp-for="RazorPagesUser.Email" class="control-label"></label>
+                <input asp-for="RazorPagesUser.Email" class="form-control" />
+                <span asp-validation-for="RazorPagesUser.Email" class="text-danger"></span>
             </div>
             <!-- <div class="form-group">
-                <label asp-for="RazorPagesMovieUser.NormalizedEmail" class="control-label"></label>
-                <input asp-for="RazorPagesMovieUser.NormalizedEmail" class="form-control" />
-                <span asp-validation-for="RazorPagesMovieUser.NormalizedEmail" class="text-danger"></span>
+                <label asp-for="RazorPagesUser.NormalizedEmail" class="control-label"></label>
+                <input asp-for="RazorPagesUser.NormalizedEmail" class="form-control" />
+                <span asp-validation-for="RazorPagesUser.NormalizedEmail" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="RazorPagesMovieUser.EmailConfirmed" /> @Html.DisplayNameFor(model => model.RazorPagesMovieUser.EmailConfirmed)
+                    <input class="form-check-input" asp-for="RazorPagesUser.EmailConfirmed" /> @Html.DisplayNameFor(model => model.RazorPagesUser.EmailConfirmed)
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="RazorPagesMovieUser.PasswordHash" class="control-label"></label>
-                <input asp-for="RazorPagesMovieUser.PasswordHash" class="form-control" />
-                <span asp-validation-for="RazorPagesMovieUser.PasswordHash" class="text-danger"></span>
+                <label asp-for="RazorPagesUser.PasswordHash" class="control-label"></label>
+                <input asp-for="RazorPagesUser.PasswordHash" class="form-control" />
+                <span asp-validation-for="RazorPagesUser.PasswordHash" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RazorPagesMovieUser.SecurityStamp" class="control-label"></label>
-                <input asp-for="RazorPagesMovieUser.SecurityStamp" class="form-control" />
-                <span asp-validation-for="RazorPagesMovieUser.SecurityStamp" class="text-danger"></span>
+                <label asp-for="RazorPagesUser.SecurityStamp" class="control-label"></label>
+                <input asp-for="RazorPagesUser.SecurityStamp" class="form-control" />
+                <span asp-validation-for="RazorPagesUser.SecurityStamp" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RazorPagesMovieUser.ConcurrencyStamp" class="control-label"></label>
-                <input asp-for="RazorPagesMovieUser.ConcurrencyStamp" class="form-control" />
-                <span asp-validation-for="RazorPagesMovieUser.ConcurrencyStamp" class="text-danger"></span>
+                <label asp-for="RazorPagesUser.ConcurrencyStamp" class="control-label"></label>
+                <input asp-for="RazorPagesUser.ConcurrencyStamp" class="form-control" />
+                <span asp-validation-for="RazorPagesUser.ConcurrencyStamp" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RazorPagesMovieUser.PhoneNumber" class="control-label"></label>
-                <input asp-for="RazorPagesMovieUser.PhoneNumber" class="form-control" />
-                <span asp-validation-for="RazorPagesMovieUser.PhoneNumber" class="text-danger"></span>
+                <label asp-for="RazorPagesUser.PhoneNumber" class="control-label"></label>
+                <input asp-for="RazorPagesUser.PhoneNumber" class="form-control" />
+                <span asp-validation-for="RazorPagesUser.PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="RazorPagesMovieUser.PhoneNumberConfirmed" /> @Html.DisplayNameFor(model => model.RazorPagesMovieUser.PhoneNumberConfirmed)
+                    <input class="form-check-input" asp-for="RazorPagesUser.PhoneNumberConfirmed" /> @Html.DisplayNameFor(model => model.RazorPagesUser.PhoneNumberConfirmed)
                 </label>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="RazorPagesMovieUser.TwoFactorEnabled" /> @Html.DisplayNameFor(model => model.RazorPagesMovieUser.TwoFactorEnabled)
+                    <input class="form-check-input" asp-for="RazorPagesUser.TwoFactorEnabled" /> @Html.DisplayNameFor(model => model.RazorPagesUser.TwoFactorEnabled)
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="RazorPagesMovieUser.LockoutEnd" class="control-label"></label>
-                <input asp-for="RazorPagesMovieUser.LockoutEnd" class="form-control" />
-                <span asp-validation-for="RazorPagesMovieUser.LockoutEnd" class="text-danger"></span>
+                <label asp-for="RazorPagesUser.LockoutEnd" class="control-label"></label>
+                <input asp-for="RazorPagesUser.LockoutEnd" class="form-control" />
+                <span asp-validation-for="RazorPagesUser.LockoutEnd" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="RazorPagesMovieUser.LockoutEnabled" /> @Html.DisplayNameFor(model => model.RazorPagesMovieUser.LockoutEnabled)
+                    <input class="form-check-input" asp-for="RazorPagesUser.LockoutEnabled" /> @Html.DisplayNameFor(model => model.RazorPagesUser.LockoutEnabled)
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="RazorPagesMovieUser.AccessFailedCount" class="control-label"></label>
-                <input asp-for="RazorPagesMovieUser.AccessFailedCount" class="form-control" />
-                <span asp-validation-for="RazorPagesMovieUser.AccessFailedCount" class="text-danger"></span>
+                <label asp-for="RazorPagesUser.AccessFailedCount" class="control-label"></label>
+                <input asp-for="RazorPagesUser.AccessFailedCount" class="form-control" />
+                <span asp-validation-for="RazorPagesUser.AccessFailedCount" class="text-danger"></span>
             </div> -->
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

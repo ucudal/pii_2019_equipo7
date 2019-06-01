@@ -16,14 +16,14 @@ namespace RazorPagesMovie.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<RazorPagesMovieUser> _signInManager;
-        private readonly UserManager<RazorPagesMovieUser> _userManager;
+        private readonly SignInManager<RazorPagesUser> _signInManager;
+        private readonly UserManager<RazorPagesUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
-            UserManager<RazorPagesMovieUser> userManager,
-            SignInManager<RazorPagesMovieUser> signInManager,
+            UserManager<RazorPagesUser> userManager,
+            SignInManager<RazorPagesUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
@@ -77,7 +77,7 @@ namespace RazorPagesMovie.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new RazorPagesMovieUser {
+                var user = new RazorPagesUser {
                     Name = Input.Name,
                     DOB = Input.DOB,
                     UserName = Input.Email,

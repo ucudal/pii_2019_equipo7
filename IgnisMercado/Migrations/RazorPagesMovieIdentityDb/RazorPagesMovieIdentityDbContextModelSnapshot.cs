@@ -127,7 +127,7 @@ namespace RazorPagesMovie.Migrations.RazorPagesMovieIdentityDb
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("RazorPagesMovie.Areas.Identity.Data.RazorPagesMovieUser", b =>
+            modelBuilder.Entity("RazorPagesMovie.Areas.Identity.Data.RazorPagesUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -191,7 +191,7 @@ namespace RazorPagesMovie.Migrations.RazorPagesMovieIdentityDb
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("RazorPagesMovie.Areas.Identity.Data.RazorPagesMovieUser")
+                    b.HasOne("RazorPagesMovie.Areas.Identity.Data.RazorPagesUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -199,7 +199,7 @@ namespace RazorPagesMovie.Migrations.RazorPagesMovieIdentityDb
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("RazorPagesMovie.Areas.Identity.Data.RazorPagesMovieUser")
+                    b.HasOne("RazorPagesMovie.Areas.Identity.Data.RazorPagesUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -212,7 +212,7 @@ namespace RazorPagesMovie.Migrations.RazorPagesMovieIdentityDb
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("RazorPagesMovie.Areas.Identity.Data.RazorPagesMovieUser")
+                    b.HasOne("RazorPagesMovie.Areas.Identity.Data.RazorPagesUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -220,7 +220,7 @@ namespace RazorPagesMovie.Migrations.RazorPagesMovieIdentityDb
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("RazorPagesMovie.Areas.Identity.Data.RazorPagesMovieUser")
+                    b.HasOne("RazorPagesMovie.Areas.Identity.Data.RazorPagesUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

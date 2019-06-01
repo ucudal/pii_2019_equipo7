@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RazorPagesMovie.Areas.Identity.Data;
 
-namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesMovieUsers
+namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesUsers
 {
     public class IndexModel : PageModel
     {
@@ -18,11 +18,11 @@ namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesMovieUsers
             _context = context;
         }
 
-        public IList<RazorPagesMovieUser> RazorPagesMovieUser { get;set; }
+        public IList<RazorPagesUser> RazorPagesUser { get;set; }
 
         public async Task OnGetAsync()
         {
-            RazorPagesMovieUser = await _context.Users.ToListAsync();
+            RazorPagesUser = await _context.Users.ToListAsync();
         }
     }
 }

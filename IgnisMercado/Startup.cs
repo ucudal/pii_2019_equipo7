@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RazorPagesMovie.Models;
+using IgnisMercado.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Authorization;
@@ -36,12 +36,12 @@ namespace RazorPagesMovie
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<RazorPagesMovieContext>(options =>
+            services.AddDbContext<IgnisContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
 
             // Fix error More than one DbContext named 'RazorPagesMovieIdentityDbContext' was found Specify which one to use by providing
-            // its fully qualified name using exact case when running dotnet aspnet-codegenerator razorpage -m RazorPagesMovieUser
-            // -dc RazorPagesMovie.Areas.Identity.Data.RazorPagesMovieIdentityDbContext -udl -outDir Areas\Identity\Pages\RazorPagesMovieUsers
+            // its fully qualified name using exact case when running dotnet aspnet-codegenerator razorpage -m RazorPagesUser
+            // -dc RazorPagesMovie.Areas.Identity.Data.RazorPagesMovieIdentityDbContext -udl -outDir Areas\Identity\Pages\RazorPagesUsers
             // --referenceScriptLibraries
             services.AddDbContext<RazorPagesMovieIdentityDbContext>(options =>
                  options.UseSqlite(Configuration.GetConnectionString("MovieContext")));

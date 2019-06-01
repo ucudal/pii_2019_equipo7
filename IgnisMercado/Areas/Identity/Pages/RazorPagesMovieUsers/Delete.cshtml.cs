@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RazorPagesMovie.Areas.Identity.Data;
 
-namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesMovieUsers
+namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesUsers
 {
     public class DeleteModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesMovieUsers
         }
 
         [BindProperty]
-        public RazorPagesMovieUser RazorPagesMovieUser { get; set; }
+        public RazorPagesUser RazorPagesUser { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -28,9 +28,9 @@ namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesMovieUsers
                 return NotFound();
             }
 
-            RazorPagesMovieUser = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
+            RazorPagesUser = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (RazorPagesMovieUser == null)
+            if (RazorPagesUser == null)
             {
                 return NotFound();
             }
@@ -44,11 +44,11 @@ namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesMovieUsers
                 return NotFound();
             }
 
-            RazorPagesMovieUser = await _context.Users.FindAsync(id);
+            RazorPagesUser = await _context.Users.FindAsync(id);
 
-            if (RazorPagesMovieUser != null)
+            if (RazorPagesUser != null)
             {
-                _context.Users.Remove(RazorPagesMovieUser);
+                _context.Users.Remove(RazorPagesUser);
                 await _context.SaveChangesAsync();
             }
 

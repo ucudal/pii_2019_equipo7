@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RazorPagesMovie.Areas.Identity.Data;
 
-namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesMovieUsers
+namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesUsers
 {
     public class DetailsModel : PageModel
     {
@@ -18,7 +18,7 @@ namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesMovieUsers
             _context = context;
         }
 
-        public RazorPagesMovieUser RazorPagesMovieUser { get; set; }
+        public RazorPagesUser RazorPagesUser { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -27,9 +27,9 @@ namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesMovieUsers
                 return NotFound();
             }
 
-            RazorPagesMovieUser = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
+            RazorPagesUser = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (RazorPagesMovieUser == null)
+            if (RazorPagesUser == null)
             {
                 return NotFound();
             }

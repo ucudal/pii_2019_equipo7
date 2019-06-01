@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RazorPagesMovie.Areas.Identity.Data;
 
-namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesMovieUsers
+namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesUsers
 {
     public class EditModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesMovieUsers
         }
 
         [BindProperty]
-        public RazorPagesMovieUser RazorPagesMovieUser { get; set; }
+        public RazorPagesUser RazorPagesUser { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -29,9 +29,9 @@ namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesMovieUsers
                 return NotFound();
             }
 
-            RazorPagesMovieUser = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
+            RazorPagesUser = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (RazorPagesMovieUser == null)
+            if (RazorPagesUser == null)
             {
                 return NotFound();
             }
@@ -45,7 +45,7 @@ namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesMovieUsers
                 return Page();
             }
 
-            _context.Attach(RazorPagesMovieUser).State = EntityState.Modified;
+            _context.Attach(RazorPagesUser).State = EntityState.Modified;
 
             try
             {
@@ -53,7 +53,7 @@ namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesMovieUsers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!RazorPagesMovieUserExists(RazorPagesMovieUser.Id))
+                if (!RazorPagesUserExists(RazorPagesUser.Id))
                 {
                     return NotFound();
                 }
@@ -66,7 +66,7 @@ namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesMovieUsers
             return RedirectToPage("./Index");
         }
 
-        private bool RazorPagesMovieUserExists(string id)
+        private bool RazorPagesUserExists(string id)
         {
             return _context.Users.Any(e => e.Id == id);
         }

@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using RazorPagesMovie.Models;
+using IgnisMercado.Models;
 
 namespace RazorPagesMovie.Pages.Movies
 {
     public class DetailsModel : PageModel
     {
-        private readonly RazorPagesMovie.Models.RazorPagesMovieContext _context;
+        private readonly IgnisMercado.Models.IgnisContext _context;
 
-        public DetailsModel(RazorPagesMovie.Models.RazorPagesMovieContext context)
+        public DetailsModel(IgnisMercado.Models.IgnisContext context)
         {
             _context = context;
         }

@@ -1,4 +1,4 @@
-@inject SignInManager<RazorPagesMovieUser> SignInManager
+@inject SignInManager<RazorPagesUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }

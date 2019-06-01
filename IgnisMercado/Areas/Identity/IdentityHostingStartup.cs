@@ -15,7 +15,7 @@ namespace RazorPagesMovie.Areas.Identity
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) => {
-                services.AddDefaultIdentity<RazorPagesMovieUser>()
+                services.AddDefaultIdentity<RazorPagesUser>()
                     .AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<RazorPagesMovieIdentityDbContext>();
             });
