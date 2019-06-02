@@ -13304,11 +13304,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\estudiante.fit\\Desktop\\Hola-Mundo\\Area2\\pii_2019_equipo7\\IgnisMercado\\IgnisMercado.csproj",
+      "projectUniqueName": "C:\\Users\\estudiante.fit\\Desktop\\Hola-Mundo\\Santiago\\pii_2019_equipo7-santiago\\IgnisMercado\\IgnisMercado.csproj",
       "projectName": "IgnisMercado",
-      "projectPath": "C:\\Users\\estudiante.fit\\Desktop\\Hola-Mundo\\Area2\\pii_2019_equipo7\\IgnisMercado\\IgnisMercado.csproj",
+      "projectPath": "C:\\Users\\estudiante.fit\\Desktop\\Hola-Mundo\\Santiago\\pii_2019_equipo7-santiago\\IgnisMercado\\IgnisMercado.csproj",
       "packagesPath": "C:\\Users\\estudiante.fit\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\estudiante.fit\\Desktop\\Hola-Mundo\\Area2\\pii_2019_equipo7\\IgnisMercado\\obj\\",
+      "outputPath": "C:\\Users\\estudiante.fit\\Desktop\\Hola-Mundo\\Santiago\\pii_2019_equipo7-santiago\\IgnisMercado\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

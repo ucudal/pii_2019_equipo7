@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\estudiante.fit\\Desktop\\Hola-Mundo\\Area2\\pii_2019_equipo7\\IgnisMercado\\IgnisMercado.csproj",
+  "FilePath": "c:\\Users\\estudiante.fit\\Desktop\\Hola-Mundo\\Santiago\\pii_2019_equipo7-santiago\\IgnisMercado\\IgnisMercado.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -2794,6 +2794,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Pages\\Filtros\\Create.cshtml",
+      "TargetPath": "Pages\\Filtros\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Pages\\Filtros\\Index.cshtml",
+      "TargetPath": "Pages\\Filtros\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Pages\\Areas\\Index.cshtml",
       "TargetPath": "Pages\\Areas\\Index.cshtml",
       "FileKind": "mvc"
@@ -2874,6 +2884,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Pages\\Filtros\\Edit.cshtml",
+      "TargetPath": "Pages\\Filtros\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Pages\\Filtros\\Delete.cshtml",
+      "TargetPath": "Pages\\Filtros\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Pages\\Competencias\\Edit.cshtml",
       "TargetPath": "Pages\\Competencias\\Edit.cshtml",
       "FileKind": "mvc"
@@ -2896,6 +2916,11 @@
     {
       "FilePath": "Pages\\Competencias\\Create.cshtml",
       "TargetPath": "Pages\\Competencias\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Pages\\Filtros\\Details.cshtml",
+      "TargetPath": "Pages\\Filtros\\Details.cshtml",
       "FileKind": "mvc"
     }
   ]

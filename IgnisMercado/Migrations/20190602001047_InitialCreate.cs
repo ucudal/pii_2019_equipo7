@@ -47,6 +47,19 @@ namespace IgnisMercado.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Filtro",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ListadoDePropuestas = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Filtro", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Propuesta",
                 columns: table => new
                 {
@@ -75,6 +88,9 @@ namespace IgnisMercado.Migrations
 
             migrationBuilder.DropTable(
                 name: "Feedback");
+
+            migrationBuilder.DropTable(
+                name: "Filtro");
 
             migrationBuilder.DropTable(
                 name: "Propuesta");

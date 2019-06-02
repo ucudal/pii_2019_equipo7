@@ -53,6 +53,18 @@ namespace IgnisMercado.Migrations
                     b.ToTable("Feedback");
                 });
 
+            modelBuilder.Entity("IgnisMercado.Models.Filtro", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ListadoDePropuestas");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Filtro");
+                });
+
             modelBuilder.Entity("IgnisMercado.Models.Propuesta", b =>
                 {
                     b.Property<int>("ID")

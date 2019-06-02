@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IgnisMercado.Migrations
 {
     [DbContext(typeof(IgnisContext))]
-    [Migration("20190601224957_InitialCreate")]
+    [Migration("20190602001047_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,6 +53,18 @@ namespace IgnisMercado.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Feedback");
+                });
+
+            modelBuilder.Entity("IgnisMercado.Models.Filtro", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ListadoDePropuestas");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Filtro");
                 });
 
             modelBuilder.Entity("IgnisMercado.Models.Propuesta", b =>
