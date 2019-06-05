@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using IgnisMercado.Models;
 
-namespace IgnisMercado.Pages.Feedbacks
+namespace RazorPagesMovie.Pages.Feedbacks
 {
     public class CreateModel : PageModel
     {
-        private readonly IgnisMercado.Models.RazorPagesFeedbackContext _context;
+        private readonly IgnisMercado.Models.IgnisContext _context;
 
-        public CreateModel(IgnisMercado.Models.RazorPagesFeedbackContext context)
+        public CreateModel(IgnisMercado.Models.IgnisContext context)
         {
             _context = context;
         }

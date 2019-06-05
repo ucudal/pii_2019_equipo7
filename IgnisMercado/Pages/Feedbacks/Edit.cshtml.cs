@@ -8,13 +8,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using IgnisMercado.Models;
 
-namespace IgnisMercado.Pages.Feedbacks
+namespace RazorPagesMovie.Pages.Feedbacks
 {
     public class EditModel : PageModel
     {
-        private readonly IgnisMercado.Models.RazorPagesFeedbackContext _context;
+        private readonly IgnisMercado.Models.IgnisContext _context;
 
-        public EditModel(IgnisMercado.Models.RazorPagesFeedbackContext context)
+        public EditModel(IgnisMercado.Models.IgnisContext context)
         {
             _context = context;
         }

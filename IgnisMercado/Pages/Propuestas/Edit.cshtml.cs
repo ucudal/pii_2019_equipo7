@@ -8,13 +8,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using IgnisMercado.Models;
 
-namespace IgnisMercado.Pages.Propuestas
+namespace RazorPagesMovie.Pages.Propuestas
 {
     public class EditModel : PageModel
     {
-        private readonly IgnisMercado.Models.RazorPagesPropuestaContext _context;
+        private readonly IgnisMercado.Models.IgnisContext _context;
 
-        public EditModel(IgnisMercado.Models.RazorPagesPropuestaContext context)
+        public EditModel(IgnisMercado.Models.IgnisContext context)
         {
             _context = context;
         }

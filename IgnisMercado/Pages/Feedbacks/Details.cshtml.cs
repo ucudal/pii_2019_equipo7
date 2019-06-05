@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using IgnisMercado.Models;
 
-namespace IgnisMercado.Pages.Feedbacks
+namespace RazorPagesMovie.Pages.Feedbacks
 {
     public class DetailsModel : PageModel
     {
-        private readonly IgnisMercado.Models.RazorPagesFeedbackContext _context;
+        private readonly IgnisMercado.Models.IgnisContext _context;
 
-        public DetailsModel(IgnisMercado.Models.RazorPagesFeedbackContext context)
+        public DetailsModel(IgnisMercado.Models.IgnisContext context)
         {
             _context = context;
         }
