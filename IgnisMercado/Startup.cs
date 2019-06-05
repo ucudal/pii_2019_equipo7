@@ -11,10 +11,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using IgnisMercado.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Authorization;
+using RazorPagesMovie.Areas.Identity.Data;
 
 
-namespace IgnisMercado
-{
+namespace RazorPagesMovie
+
+ {
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -33,13 +37,31 @@ namespace IgnisMercado
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            services.AddDbContext<RazorPagesPropuestaContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("PropuestaContext")));
-            
-            services.AddDbContext<RazorPagesFeedbackContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("FeedbackContext")));
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddDbContext<IgnisContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
+
+            // Fix error More than one DbContext named 'RazorPagesMovieIdentityDbContext' was found Specify which one to use by providing
+            // its fully qualified name using exact case when running dotnet aspnet-codegenerator razorpage -m RazorPagesUser
+            // -dc RazorPagesMovie.Areas.Identity.Data.RazorPagesMovieIdentityDbContext -udl -outDir Areas\Identity\Pages\RazorPagesUsers
+            // --referenceScriptLibraries
+            services.AddDbContext<RazorPagesMovieIdentityDbContext>(options =>
+                 options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
+
+            services.AddMvc(config =>
+            {
+                // Requiere que haya usuarios logueados
+                var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build();
+                config.Filters.Add(new AuthorizeFilter(policy));
+            })
+                .AddRazorPagesOptions(options =>
+                {
+                    options.Conventions.AllowAnonymousToPage("/Privacy");
+                })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +81,7 @@ namespace IgnisMercado
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseMvc();
         }
