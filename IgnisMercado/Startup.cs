@@ -15,10 +15,8 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Authorization;
 using RazorPagesMovie.Areas.Identity.Data;
 
-
 namespace RazorPagesMovie
-
- {
+{
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -37,7 +35,6 @@ namespace RazorPagesMovie
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
 
             services.AddDbContext<IgnisContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
