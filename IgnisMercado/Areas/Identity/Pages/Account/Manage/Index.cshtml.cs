@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using RazorPagesMovie.Areas.Identity.Data;
+using IgnisMercado.Areas.Identity.Data;
 
-namespace RazorPagesMovie.Areas.Identity.Pages.Account.Manage
+namespace IgnisMercado.Areas.Identity.Pages.Account.Manage
 {
     public partial class IndexModel : PageModel
     {

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace RazorPagesMovie.Migrations
+namespace IgnisMercado.Migrations
 {
     [DbContext(typeof(IgnisContext))]
     partial class IgnisContextModelSnapshot : ModelSnapshot

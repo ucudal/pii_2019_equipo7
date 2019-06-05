@@ -13,9 +13,9 @@ using IgnisMercado.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Authorization;
-using RazorPagesMovie.Areas.Identity.Data;
+using IgnisMercado.Areas.Identity.Data;
 
-namespace RazorPagesMovie
+namespace IgnisMercado
 {
     public class Startup
     {
@@ -39,11 +39,11 @@ namespace RazorPagesMovie
             services.AddDbContext<IgnisContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
 
-            // Fix error More than one DbContext named 'RazorPagesMovieIdentityDbContext' was found Specify which one to use by providing
+            // Fix error More than one DbContext named 'IgnisMercadoIdentityDbContext' was found Specify which one to use by providing
             // its fully qualified name using exact case when running dotnet aspnet-codegenerator razorpage -m RazorPagesUser
-            // -dc RazorPagesMovie.Areas.Identity.Data.RazorPagesMovieIdentityDbContext -udl -outDir Areas\Identity\Pages\RazorPagesUsers
+            // -dc IgnisMercado.Areas.Identity.Data.IgnisMercadoIdentityDbContext -udl -outDir Areas\Identity\Pages\RazorPagesUsers
             // --referenceScriptLibraries
-            services.AddDbContext<RazorPagesMovieIdentityDbContext>(options =>
+            services.AddDbContext<IgnisMercadoIdentityDbContext>(options =>
                  options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
 
             services.AddMvc(config =>

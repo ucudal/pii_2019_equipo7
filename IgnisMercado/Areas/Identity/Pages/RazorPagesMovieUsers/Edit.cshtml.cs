@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using RazorPagesMovie.Areas.Identity.Data;
+using IgnisMercado.Areas.Identity.Data;
 
-namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesUsers
+namespace IgnisMercado.Areas.Identity.Pages.RazorPagesUsers
 {
     public class EditModel : PageModel
     {
-        private readonly RazorPagesMovie.Areas.Identity.Data.RazorPagesMovieIdentityDbContext _context;
+        private readonly IgnisMercado.Areas.Identity.Data.IgnisMercadoIdentityDbContext _context;
 
-        public EditModel(RazorPagesMovie.Areas.Identity.Data.RazorPagesMovieIdentityDbContext context)
+        public EditModel(IgnisMercado.Areas.Identity.Data.IgnisMercadoIdentityDbContext context)
         {
             _context = context;
         }

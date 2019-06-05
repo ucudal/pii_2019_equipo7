@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace RazorPagesMovie.Migrations
+namespace IgnisMercado.Migrations
 {
     [DbContext(typeof(IgnisContext))]
     [Migration("20190601221658_Initial")]

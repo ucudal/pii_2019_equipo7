@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace RazorPagesMovie.Areas.Identity.Data
+namespace IgnisMercado.Areas.Identity.Data
 {
     public static class SeedIdentityData
     {

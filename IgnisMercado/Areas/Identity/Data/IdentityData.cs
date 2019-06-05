@@ -1,6 +1,6 @@
 using System;
 
-namespace RazorPagesMovie.Areas.Identity.Data
+namespace IgnisMercado.Areas.Identity.Data
 {
     public static class IdentityData
     {

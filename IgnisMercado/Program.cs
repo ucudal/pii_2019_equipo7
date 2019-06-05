@@ -5,9 +5,9 @@ using Microsoft.Extensions.Logging;
 using IgnisMercado.Models;
 using System;
 using Microsoft.EntityFrameworkCore;
-using RazorPagesMovie.Areas.Identity.Data;
+using IgnisMercado.Areas.Identity.Data;
 
-namespace RazorPagesMovie
+namespace IgnisMercado
 {
     public class Program
     {

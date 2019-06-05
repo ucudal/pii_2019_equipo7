@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace RazorPagesMovie.Migrations
+namespace IgnisMercado.Migrations
 {
     public partial class Initial : Migration
     {

@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RazorPagesMovie.Areas.Identity.Data;
+using IgnisMercado.Areas.Identity.Data;
 
-[assembly: HostingStartup(typeof(RazorPagesMovie.Areas.Identity.IdentityHostingStartup))]
-namespace RazorPagesMovie.Areas.Identity
+[assembly: HostingStartup(typeof(IgnisMercado.Areas.Identity.IdentityHostingStartup))]
+namespace IgnisMercado.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup
     {
@@ -17,7 +17,7 @@ namespace RazorPagesMovie.Areas.Identity
             builder.ConfigureServices((context, services) => {
                 services.AddDefaultIdentity<RazorPagesUser>()
                     .AddRoles<IdentityRole>()
-                    .AddEntityFrameworkStores<RazorPagesMovieIdentityDbContext>();
+                    .AddEntityFrameworkStores<IgnisMercadoIdentityDbContext>();
             });
         }
     }

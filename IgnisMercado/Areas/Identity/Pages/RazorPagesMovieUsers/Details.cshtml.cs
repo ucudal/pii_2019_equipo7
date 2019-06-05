@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using RazorPagesMovie.Areas.Identity.Data;
+using IgnisMercado.Areas.Identity.Data;
 
-namespace RazorPagesMovie.Areas.Identity.Pages.RazorPagesUsers
+namespace IgnisMercado.Areas.Identity.Pages.RazorPagesUsers
 {
     public class DetailsModel : PageModel
     {
-        private readonly RazorPagesMovie.Areas.Identity.Data.RazorPagesMovieIdentityDbContext _context;
+        private readonly IgnisMercado.Areas.Identity.Data.IgnisMercadoIdentityDbContext _context;
 
-        public DetailsModel(RazorPagesMovie.Areas.Identity.Data.RazorPagesMovieIdentityDbContext context)
+        public DetailsModel(IgnisMercado.Areas.Identity.Data.IgnisMercadoIdentityDbContext context)
         {
             _context = context;
         }

@@ -3,12 +3,12 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RazorPagesMovie.Areas.Identity.Data;
+using IgnisMercado.Areas.Identity.Data;
 
-namespace RazorPagesMovie.Migrations.RazorPagesMovieIdentityDb
+namespace IgnisMercado.Migrations.IgnisMercadoIdentityDb
 {
-    [DbContext(typeof(RazorPagesMovieIdentityDbContext))]
-    partial class RazorPagesMovieIdentityDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(IgnisMercadoIdentityDbContext))]
+    partial class IgnisMercadoIdentityDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -127,7 +127,7 @@ namespace RazorPagesMovie.Migrations.RazorPagesMovieIdentityDb
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("RazorPagesMovie.Areas.Identity.Data.RazorPagesUser", b =>
+            modelBuilder.Entity("IgnisMercado.Areas.Identity.Data.RazorPagesUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -191,7 +191,7 @@ namespace RazorPagesMovie.Migrations.RazorPagesMovieIdentityDb
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("RazorPagesMovie.Areas.Identity.Data.RazorPagesUser")
+                    b.HasOne("IgnisMercado.Areas.Identity.Data.RazorPagesUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -199,7 +199,7 @@ namespace RazorPagesMovie.Migrations.RazorPagesMovieIdentityDb
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("RazorPagesMovie.Areas.Identity.Data.RazorPagesUser")
+                    b.HasOne("IgnisMercado.Areas.Identity.Data.RazorPagesUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -212,7 +212,7 @@ namespace RazorPagesMovie.Migrations.RazorPagesMovieIdentityDb
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("RazorPagesMovie.Areas.Identity.Data.RazorPagesUser")
+                    b.HasOne("IgnisMercado.Areas.Identity.Data.RazorPagesUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -220,7 +220,7 @@ namespace RazorPagesMovie.Migrations.RazorPagesMovieIdentityDb
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("RazorPagesMovie.Areas.Identity.Data.RazorPagesUser")
+                    b.HasOne("IgnisMercado.Areas.Identity.Data.RazorPagesUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

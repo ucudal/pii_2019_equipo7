@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using RazorPagesMovie.Areas.Identity.Data;
+using IgnisMercado.Areas.Identity.Data;
 
-namespace RazorPagesMovie.Areas.Identity.Data
+namespace IgnisMercado.Areas.Identity.Data
 {
-    public class RazorPagesMovieIdentityDbContext : IdentityDbContext<RazorPagesUser>
+    public class IgnisMercadoIdentityDbContext : IdentityDbContext<RazorPagesUser>
     {
-        public RazorPagesMovieIdentityDbContext(DbContextOptions<RazorPagesMovieIdentityDbContext> options)
+        public IgnisMercadoIdentityDbContext(DbContextOptions<IgnisMercadoIdentityDbContext> options)
             : base(options)
         {
         }
