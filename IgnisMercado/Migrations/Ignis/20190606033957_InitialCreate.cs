@@ -1,25 +1,12 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace IgnisMercado.Migrations
+namespace RazorPagesMovie.Migrations.Ignis
 {
-    public partial class Initial : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Feedback",
-                columns: table => new
-                {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    ValoracionDelTrabajo = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Feedback", x => x.ID);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Movie",
                 columns: table => new
@@ -43,6 +30,7 @@ namespace IgnisMercado.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    Title = table.Column<string>(nullable: true),
                     NivelDeDificultad = table.Column<string>(nullable: true),
                     EstimadoPorHora = table.Column<string>(nullable: true),
                     Estado = table.Column<string>(nullable: true),
@@ -58,9 +46,6 @@ namespace IgnisMercado.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Feedback");
-
             migrationBuilder.DropTable(
                 name: "Movie");
 

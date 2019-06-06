@@ -1,5 +1,5 @@
 @page
-@model IgnisMercado.Pages.Propuestas.EditModel
+@model RazorPagesMovie.Pages.Propuestas.EditModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -14,6 +14,11 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Propuesta.ID" />
+            <div class="form-group">
+                <label asp-for="Propuesta.Title" class="control-label"></label>
+                <input asp-for="Propuesta.Title" class="form-control" />
+                <span asp-validation-for="Propuesta.Title" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Propuesta.NivelDeDificultad" class="control-label"></label>
                 <input asp-for="Propuesta.NivelDeDificultad" class="form-control" />

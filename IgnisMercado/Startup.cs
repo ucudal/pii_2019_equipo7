@@ -37,14 +37,14 @@ namespace IgnisMercado
             });
 
             services.AddDbContext<IgnisContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
+                options.UseSqlite(Configuration.GetConnectionString("IgnisContext")));
 
             // Fix error More than one DbContext named 'IgnisMercadoIdentityDbContext' was found Specify which one to use by providing
-            // its fully qualified name using exact case when running dotnet aspnet-codegenerator razorpage -m RazorPagesUser
-            // -dc IgnisMercado.Areas.Identity.Data.IgnisMercadoIdentityDbContext -udl -outDir Areas\Identity\Pages\RazorPagesUsers
+            // its fully qualified name using exact case when running dotnet aspnet-codegenerator razorpage -m ApplicationUser
+            // -dc IgnisMercado.Areas.Identity.Data.IgnisMercadoIdentityDbContext -udl -outDir Areas\Identity\Pages\ApplicationUsers
             // --referenceScriptLibraries
-            services.AddDbContext<IgnisMercadoIdentityDbContext>(options =>
-                 options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
+            services.AddDbContext<IdentityContext>(options =>
+                 options.UseSqlite(Configuration.GetConnectionString("IgnisContext")));
 
             services.AddMvc(config =>
             {

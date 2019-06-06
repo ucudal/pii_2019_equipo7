@@ -1,5 +1,5 @@
 @page
-@model IgnisMercado.Pages.Propuestas.IndexModel
+@model RazorPagesMovie.Pages.Propuestas.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -13,6 +13,9 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Propuesta[0].Title)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Propuesta[0].NivelDeDificultad)
             </th>
@@ -37,6 +40,9 @@
     <tbody>
 @foreach (var item in Model.Propuesta) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NivelDeDificultad)
             </td>

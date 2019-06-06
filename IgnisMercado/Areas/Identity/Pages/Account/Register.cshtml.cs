@@ -16,14 +16,14 @@ namespace IgnisMercado.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<RazorPagesUser> _signInManager;
-        private readonly UserManager<RazorPagesUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
-            UserManager<RazorPagesUser> userManager,
-            SignInManager<RazorPagesUser> signInManager,
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
@@ -77,7 +77,7 @@ namespace IgnisMercado.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new RazorPagesUser {
+                var user = new ApplicationUser {
                     Name = Input.Name,
                     DOB = Input.DOB,
                     UserName = Input.Email,

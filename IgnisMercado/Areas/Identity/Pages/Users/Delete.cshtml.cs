@@ -6,20 +6,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using IgnisMercado.Areas.Identity.Data;
+using Microsoft.AspNetCore.Authorization;
 
-namespace IgnisMercado.Areas.Identity.Pages.RazorPagesUsers
+namespace IgnisMercado.Areas.Identity.Pages.Users
 {
+    [Authorize(Roles=IdentityData.AdminRoleName)] // Solo los usuarios con rol administrador pueden acceder a este controlador
     public class DeleteModel : PageModel
     {
-        private readonly IgnisMercado.Areas.Identity.Data.IgnisMercadoIdentityDbContext _context;
+        private readonly IgnisMercado.Areas.Identity.Data.IdentityContext _context;
 
-        public DeleteModel(IgnisMercado.Areas.Identity.Data.IgnisMercadoIdentityDbContext context)
+        public DeleteModel(IgnisMercado.Areas.Identity.Data.IdentityContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public RazorPagesUser RazorPagesUser { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -28,9 +30,9 @@ namespace IgnisMercado.Areas.Identity.Pages.RazorPagesUsers
                 return NotFound();
             }
 
-            RazorPagesUser = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
+            ApplicationUser = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (RazorPagesUser == null)
+            if (ApplicationUser == null)
             {
                 return NotFound();
             }
@@ -44,11 +46,11 @@ namespace IgnisMercado.Areas.Identity.Pages.RazorPagesUsers
                 return NotFound();
             }
 
-            RazorPagesUser = await _context.Users.FindAsync(id);
+            ApplicationUser = await _context.Users.FindAsync(id);
 
-            if (RazorPagesUser != null)
+            if (ApplicationUser != null)
             {
-                _context.Users.Remove(RazorPagesUser);
+                _context.Users.Remove(ApplicationUser);
                 await _context.SaveChangesAsync();
             }
 

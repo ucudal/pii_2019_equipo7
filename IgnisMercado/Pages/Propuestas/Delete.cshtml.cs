@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using IgnisMercado.Models;
 
-namespace IgnisMercado.Pages.Propuestas
+namespace RazorPagesMovie.Pages.Propuestas
 {
     public class DeleteModel : PageModel
     {
