@@ -344,3 +344,5 @@ healthchecksdb
 MigrationBackup/
 
 .vscode/
+IgnisMercado/Model/Movie.cs
+IgnisMercado/Pages/Movies/*

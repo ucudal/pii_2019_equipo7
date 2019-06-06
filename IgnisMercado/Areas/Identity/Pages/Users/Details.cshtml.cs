@@ -6,19 +6,21 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using IgnisMercado.Areas.Identity.Data;
+using Microsoft.AspNetCore.Authorization;
 
-namespace IgnisMercado.Areas.Identity.Pages.RazorPagesUsers
+namespace IgnisMercado.Areas.Identity.Pages.Users
 {
+    [Authorize(Roles=IdentityData.AdminRoleName)] // Solo los usuarios con rol administrador pueden acceder a este controlador
     public class DetailsModel : PageModel
     {
-        private readonly IgnisMercado.Areas.Identity.Data.IgnisMercadoIdentityDbContext _context;
+        private readonly IgnisMercado.Areas.Identity.Data.IdentityContext _context;
 
-        public DetailsModel(IgnisMercado.Areas.Identity.Data.IgnisMercadoIdentityDbContext context)
+        public DetailsModel(IgnisMercado.Areas.Identity.Data.IdentityContext context)
         {
             _context = context;
         }
 
-        public RazorPagesUser RazorPagesUser { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -27,9 +29,9 @@ namespace IgnisMercado.Areas.Identity.Pages.RazorPagesUsers
                 return NotFound();
             }
 
-            RazorPagesUser = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
+            ApplicationUser = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (RazorPagesUser == null)
+            if (ApplicationUser == null)
             {
                 return NotFound();
             }
