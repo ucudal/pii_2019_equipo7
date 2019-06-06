@@ -29,7 +29,7 @@ namespace RazorPagesMovie.Pages.Propuestas
                 return NotFound();
             }
 
-            Propuesta = await _context.Propuesta_1.FirstOrDefaultAsync(m => m.ID == id);
+            Propuesta = await _context.Propuesta.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Propuesta == null)
             {
@@ -68,7 +68,7 @@ namespace RazorPagesMovie.Pages.Propuestas
 
         private bool PropuestaExists(int id)
         {
-            return _context.Propuesta_1.Any(e => e.ID == id);
+            return _context.Propuesta.Any(e => e.ID == id);
         }
     }
 }

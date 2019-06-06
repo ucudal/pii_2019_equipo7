@@ -33,7 +33,7 @@ namespace RazorPagesMovie.Pages.Propuestas
                 return Page();
             }
 
-            _context.Propuesta_1.Add(Propuesta);
+            _context.Propuesta.Add(Propuesta);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

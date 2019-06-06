@@ -27,7 +27,7 @@ namespace RazorPagesMovie.Pages.Propuestas
                 return NotFound();
             }
 
-            Propuesta = await _context.Propuesta_1.FirstOrDefaultAsync(m => m.ID == id);
+            Propuesta = await _context.Propuesta.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Propuesta == null)
             {

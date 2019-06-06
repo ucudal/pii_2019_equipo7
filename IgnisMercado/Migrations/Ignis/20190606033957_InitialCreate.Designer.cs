@@ -3,14 +3,16 @@ using System;
 using IgnisMercado.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace RazorPagesMovie.Migrations
+namespace RazorPagesMovie.Migrations.Ignis
 {
     [DbContext(typeof(IgnisContext))]
-    partial class IgnisContextModelSnapshot : ModelSnapshot
+    [Migration("20190606033957_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,6 +43,30 @@ namespace RazorPagesMovie.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Movie");
+                });
+
+            modelBuilder.Entity("IgnisMercado.Models.Propuesta", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("DescripcionDeLaPropuesta");
+
+                    b.Property<string>("Estado");
+
+                    b.Property<string>("EstimadoPorHora");
+
+                    b.Property<string>("ListaDeTecnicosPostulados");
+
+                    b.Property<string>("NivelDeDificultad");
+
+                    b.Property<string>("TecnicoAsignado");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Propuesta");
                 });
 #pragma warning restore 612, 618
         }

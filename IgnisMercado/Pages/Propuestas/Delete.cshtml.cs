@@ -28,7 +28,7 @@ namespace RazorPagesMovie.Pages.Propuestas
                 return NotFound();
             }
 
-            Propuesta = await _context.Propuesta_1.FirstOrDefaultAsync(m => m.ID == id);
+            Propuesta = await _context.Propuesta.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Propuesta == null)
             {
@@ -44,11 +44,11 @@ namespace RazorPagesMovie.Pages.Propuestas
                 return NotFound();
             }
 
-            Propuesta = await _context.Propuesta_1.FindAsync(id);
+            Propuesta = await _context.Propuesta.FindAsync(id);
 
             if (Propuesta != null)
             {
-                _context.Propuesta_1.Remove(Propuesta);
+                _context.Propuesta.Remove(Propuesta);
                 await _context.SaveChangesAsync();
             }
 

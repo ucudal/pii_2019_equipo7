@@ -22,7 +22,7 @@ namespace RazorPagesMovie.Pages.Propuestas
 
         public async Task OnGetAsync()
         {
-            Propuesta = await _context.Propuesta_1.ToListAsync();
+            Propuesta = await _context.Propuesta.ToListAsync();
         }
     }
 }

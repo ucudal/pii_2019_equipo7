@@ -14,6 +14,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Propuesta[0].Title)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Propuesta[0].NivelDeDificultad)
             </th>
             <th>
@@ -37,6 +40,9 @@
     <tbody>
 @foreach (var item in Model.Propuesta) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NivelDeDificultad)
             </td>
