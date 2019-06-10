@@ -24,9 +24,9 @@ namespace IgnisMercado.Models
                     new Propuesta
                     {
                         Title = "When Harry Met Sally",
-                        NivelDeDificultad = "Alta",
-                        EstimadoPorHora = "6",
-                        Estado = "Aierto",
+                       // NivelDeDificultad = "Alta",
+                        //EstimadoPorHora = "6",
+                        //Estado = "Aierto",
                         DescripcionDeLaPropuesta = "test"
 
                     }

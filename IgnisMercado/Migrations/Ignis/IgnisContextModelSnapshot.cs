@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace RazorPagesMovie.Migrations.Ignis
+namespace IgnisMercado.Migrations.Ignis
 {
     [DbContext(typeof(IgnisContext))]
     partial class IgnisContextModelSnapshot : ModelSnapshot
@@ -46,11 +46,13 @@ namespace RazorPagesMovie.Migrations.Ignis
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("CostoEstimado");
+
                     b.Property<string>("DescripcionDeLaPropuesta");
 
                     b.Property<string>("Estado");
 
-                    b.Property<string>("EstimadoPorHora");
+                    b.Property<int>("EstimadoDeHora");
 
                     b.Property<string>("ListaDeTecnicosPostulados");
 

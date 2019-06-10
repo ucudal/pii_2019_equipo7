@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace RazorPagesMovie.Migrations.Ignis
+namespace IgnisMercado.Migrations.Ignis
 {
     public partial class InitialCreate : Migration
     {
@@ -41,7 +41,8 @@ namespace RazorPagesMovie.Migrations.Ignis
                         .Annotation("Sqlite:Autoincrement", true),
                     Title = table.Column<string>(nullable: true),
                     NivelDeDificultad = table.Column<string>(nullable: true),
-                    EstimadoPorHora = table.Column<string>(nullable: true),
+                    EstimadoDeHora = table.Column<int>(nullable: false),
+                    CostoEstimado = table.Column<int>(nullable: false),
                     Estado = table.Column<string>(nullable: true),
                     DescripcionDeLaPropuesta = table.Column<string>(nullable: true),
                     ListaDeTecnicosPostulados = table.Column<string>(nullable: true),
