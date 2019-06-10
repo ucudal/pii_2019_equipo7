@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using IgnisMercado.Models;
 
-namespace RazorPagesMovie.Pages.Competencias
+namespace IgnisMercado.Pages.Competencias
 {
     public class EditModel : PageModel
     {

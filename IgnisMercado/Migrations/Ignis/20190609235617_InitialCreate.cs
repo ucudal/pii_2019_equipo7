@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace RazorPagesMovie.Migrations.Ignis
+namespace IgnisMercado.Migrations.Ignis
 {
     public partial class InitialCreate : Migration
     {

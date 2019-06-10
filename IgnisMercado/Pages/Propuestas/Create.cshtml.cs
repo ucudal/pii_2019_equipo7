@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using IgnisMercado.Models;
 
-namespace RazorPagesMovie.Pages.Propuestas
+namespace IgnisMercado.Pages.Propuestas
 {
     public class CreateModel : PageModel
     {

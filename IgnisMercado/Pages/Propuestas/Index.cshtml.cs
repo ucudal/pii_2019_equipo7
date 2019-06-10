@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using IgnisMercado.Models;
 
-namespace RazorPagesMovie.Pages.Propuestas
+namespace IgnisMercado.Pages.Propuestas
 {
     public class IndexModel : PageModel
     {

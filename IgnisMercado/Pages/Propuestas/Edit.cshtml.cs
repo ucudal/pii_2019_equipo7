@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using IgnisMercado.Models;
 using IgnisMercado.Data;
 
-namespace RazorPagesMovie.Pages.Propuestas
+namespace IgnisMercado.Pages.Propuestas
 {
     public class EditModel : PageModel
     {

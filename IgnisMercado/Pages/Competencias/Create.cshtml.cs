@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using IgnisMercado.Models;
 
-namespace RazorPagesMovie.Pages.Competencias
+namespace IgnisMercado.Pages.Competencias
 {
     public class CreateModel : PageModel
     {

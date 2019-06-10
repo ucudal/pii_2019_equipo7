@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace RazorPagesMovie.Migrations.Ignis
+namespace IgnisMercado.Migrations.Ignis
 {
     [DbContext(typeof(IgnisContext))]
     [Migration("20190609235617_InitialCreate")]
