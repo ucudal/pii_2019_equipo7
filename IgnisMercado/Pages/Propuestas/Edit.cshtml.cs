@@ -59,6 +59,7 @@ namespace IgnisMercado.Pages.Propuestas
             
             Propuesta.NivelDeDificultad= IgnisData.NivelesDeDificultad[NiveleDif];
             Propuesta.CalcularCostoEstimado();
+            
             _context.Attach(Propuesta).State = EntityState.Modified;
 
             

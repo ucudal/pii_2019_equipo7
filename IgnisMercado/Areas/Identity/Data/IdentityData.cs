@@ -2,6 +2,7 @@ using System;
 
 namespace IgnisMercado.Areas.Identity.Data
 {
+    
     public static class IdentityData
     {
         public const string AdminUserName = "admin@contoso.com";

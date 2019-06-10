@@ -27,6 +27,7 @@ namespace IgnisMercado.Models
         public string TecnicoAsignado { get; 
         private set; }
 
+        //Se utiliza el patron expert y se otorga la responsabilidad a la clase propuesta de Calcular Costo Estimado ya que tiene toda la informacion  para hacerlo.
         public void CalcularCostoEstimado(){
             int result=0;
             if(this.NivelDeDificultad == IgnisData.NivelesDeDificultad[0]){

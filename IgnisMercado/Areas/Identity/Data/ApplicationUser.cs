@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IgnisMercado.Areas.Identity.Data
 {
-    // Add profile data for application users by adding properties to the ApplicationUser class
+    // Se utiliza el patron de herencia, la clase ApplicationUser heranda los mentodos y atributos de IdentityUser
     public class ApplicationUser : IdentityUser
     {
         [PersonalData]
