@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using IgnisMercado.Models;
+using IgnisMercado.Data;
 
 namespace RazorPagesMovie.Pages.Propuestas
 {
@@ -14,9 +15,20 @@ namespace RazorPagesMovie.Pages.Propuestas
     {
         private readonly IgnisMercado.Models.IgnisContext _context;
 
+        public List<SelectListItem> NivelesDif { get; }
+        public int NiveleDif { get; }
+
         public EditModel(IgnisMercado.Models.IgnisContext context)
         {
-            _context = context;
+           _context = context;
+            
+            this.NivelesDif = new List<SelectListItem>();
+
+            for (int i = 0; i < IgnisData.NivelesDeDificultad.Length; i++)
+              {
+                this.NivelesDif.Add(new SelectListItem { Value = i.ToString(), Text = IgnisData.NivelesDeDificultad[i] });
+            }
+                
         }
 
         [BindProperty]
@@ -44,9 +56,13 @@ namespace RazorPagesMovie.Pages.Propuestas
             {
                 return Page();
             }
-
+            
+            Propuesta.NivelDeDificultad= IgnisData.NivelesDeDificultad[NiveleDif];
+            Propuesta.CalcularCostoEstimado();
             _context.Attach(Propuesta).State = EntityState.Modified;
 
+            
+            
             try
             {
                 await _context.SaveChangesAsync();

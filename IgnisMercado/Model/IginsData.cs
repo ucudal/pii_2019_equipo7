@@ -6,9 +6,9 @@ namespace IgnisMercado.Data
     {
         public const int PrecioHoraAvanzado = 150;
 
-        public const int PrecioHoraBasico = 150;
+        public const int PrecioHoraBasico = 160;
     
-        public static string[] NonAdminRoleNames = new string[] { "Basico", "Basico" };
+        public static string[] NivelesDeDificultad = new string[] { "Basico", "Avanzado" };
     
     }
 

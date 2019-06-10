@@ -20,7 +20,10 @@
                 @Html.DisplayNameFor(model => model.Propuesta[0].NivelDeDificultad)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Propuesta[0].EstimadoPorHora)
+                @Html.DisplayNameFor(model => model.Propuesta[0].EstimadoDeHora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Propuesta[0].CostoEstimado)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Propuesta[0].Estado)
@@ -47,7 +50,10 @@
                 @Html.DisplayFor(modelItem => item.NivelDeDificultad)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EstimadoPorHora)
+                @Html.DisplayFor(modelItem => item.EstimadoDeHora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostoEstimado)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Estado)

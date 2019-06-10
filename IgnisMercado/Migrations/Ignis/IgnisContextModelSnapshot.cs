@@ -46,11 +46,13 @@ namespace RazorPagesMovie.Migrations.Ignis
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("CostoEstimado");
+
                     b.Property<string>("DescripcionDeLaPropuesta");
 
                     b.Property<string>("Estado");
 
-                    b.Property<string>("EstimadoPorHora");
+                    b.Property<int>("EstimadoDeHora");
 
                     b.Property<string>("ListaDeTecnicosPostulados");
 
