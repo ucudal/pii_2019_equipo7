@@ -11,9 +11,9 @@ namespace IgnisMercado.Pages.Feedbacks
 {
     public class DeleteModel : PageModel
     {
-        private readonly IgnisMercado.Models.IgnisContext _context;
+        private readonly IgnisMercado.Models.ApplicationContext _context;
 
-        public DeleteModel(IgnisMercado.Models.IgnisContext context)
+        public DeleteModel(IgnisMercado.Models.ApplicationContext context)
         {
             _context = context;
         }
@@ -28,7 +28,7 @@ namespace IgnisMercado.Pages.Feedbacks
                 return NotFound();
             }
 
-            Feedback = await _context.Feedback.FirstOrDefaultAsync(m => m.ID == id);
+            Feedback = await _context.Feedbacks.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Feedback == null)
             {
@@ -44,11 +44,11 @@ namespace IgnisMercado.Pages.Feedbacks
                 return NotFound();
             }
 
-            Feedback = await _context.Feedback.FindAsync(id);
+            Feedback = await _context.Feedbacks.FindAsync(id);
 
             if (Feedback != null)
             {
-                _context.Feedback.Remove(Feedback);
+                _context.Feedbacks.Remove(Feedback);
                 await _context.SaveChangesAsync();
             }
 

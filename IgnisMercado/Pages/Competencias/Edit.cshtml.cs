@@ -12,9 +12,9 @@ namespace IgnisMercado.Pages.Competencias
 {
     public class EditModel : PageModel
     {
-        private readonly IgnisMercado.Models.IgnisContext _context;
+        private readonly IgnisMercado.Models.ApplicationContext _context;
 
-        public EditModel(IgnisMercado.Models.IgnisContext context)
+        public EditModel(IgnisMercado.Models.ApplicationContext context)
         {
             _context = context;
         }

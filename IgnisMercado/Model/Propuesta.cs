@@ -1,12 +1,14 @@
     
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using IgnisMercado.Data;
 
 namespace IgnisMercado.Models
 {
-    public class Propuesta
+    public class Propuesta 
     {
+        
         [Key]
         public  int ID { get; set; }
         [Display(Name = "Title")]
@@ -26,6 +28,8 @@ namespace IgnisMercado.Models
         [Display(Name = "Tecnico Asignado")]
         public string TecnicoAsignado { get; 
         private set; }
+        public DateTime FechaLimite{get; private set;}
+        [Display(Name = "Fecha Límite De La Propuesta")]
 
         //Se utiliza el patron expert y se otorga la responsabilidad a la clase propuesta de Calcular Costo Estimado ya que tiene toda la informacion  para hacerlo.
         public void CalcularCostoEstimado(){
@@ -38,5 +42,6 @@ namespace IgnisMercado.Models
             }
             this.CostoEstimado=result;
         }
+       
     }
 }

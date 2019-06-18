@@ -13,12 +13,12 @@ namespace IgnisMercado.Pages.Propuestas
 {
     public class EditModel : PageModel
     {
-        private readonly IgnisMercado.Models.IgnisContext _context;
+        private readonly IgnisMercado.Models.ApplicationContext _context;
 
         public List<SelectListItem> NivelesDif { get; }
         public int NiveleDif { get; }
 
-        public EditModel(IgnisMercado.Models.IgnisContext context)
+        public EditModel(IgnisMercado.Models.ApplicationContext context)
         {
            _context = context;
             
@@ -59,7 +59,8 @@ namespace IgnisMercado.Pages.Propuestas
             
             Propuesta.NivelDeDificultad= IgnisData.NivelesDeDificultad[NiveleDif];
             Propuesta.CalcularCostoEstimado();
-            
+
+
             _context.Attach(Propuesta).State = EntityState.Modified;
 
             

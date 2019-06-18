@@ -13,7 +13,7 @@ using IgnisMercado.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Authorization;
-using IgnisMercado.Areas.Identity.Data;
+
 
 namespace IgnisMercado
 {
@@ -36,15 +36,8 @@ namespace IgnisMercado
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<IgnisContext>(options =>
+            services.AddDbContext<ApplicationContext >(options =>
                 options.UseSqlite(Configuration.GetConnectionString("IgnisContext")));
-
-            // Fix error More than one DbContext named 'IgnisMercadoIdentityDbContext' was found Specify which one to use by providing
-            // its fully qualified name using exact case when running dotnet aspnet-codegenerator razorpage -m ApplicationUser
-            // -dc IgnisMercado.Areas.Identity.Data.IgnisMercadoIdentityDbContext -udl -outDir Areas\Identity\Pages\ApplicationUsers
-            // --referenceScriptLibraries
-            services.AddDbContext<IdentityContext>(options =>
-                 options.UseSqlite(Configuration.GetConnectionString("IgnisContext")));
 
             services.AddMvc(config =>
             {

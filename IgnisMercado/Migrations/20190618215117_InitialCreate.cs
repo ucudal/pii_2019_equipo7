@@ -50,6 +50,54 @@ namespace IgnisMercado.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Competencia",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    NivelBasicoOAvanzado = table.Column<string>(nullable: true),
+                    PrecioPorHora = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Competencia", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Feedbacks",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ValoracionDelTrabajo = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Feedbacks", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Propuesta",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Title = table.Column<string>(nullable: true),
+                    NivelDeDificultad = table.Column<string>(nullable: true),
+                    EstimadoDeHora = table.Column<int>(nullable: false),
+                    CostoEstimado = table.Column<int>(nullable: false),
+                    Estado = table.Column<string>(nullable: true),
+                    DescripcionDeLaPropuesta = table.Column<string>(nullable: true),
+                    ListaDeTecnicosPostulados = table.Column<string>(nullable: true),
+                    TecnicoAsignado = table.Column<string>(nullable: true),
+                    FechaLimite = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Propuesta", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -155,6 +203,32 @@ namespace IgnisMercado.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Feedback de la Propuesta",
+                columns: table => new
+                {
+                    PropuestaID = table.Column<int>(nullable: false),
+                    FeedbackID = table.Column<int>(nullable: false),
+                    FeedbackID1 = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Feedback de la Propuesta", x => new { x.PropuestaID, x.FeedbackID });
+                    table.UniqueConstraint("AK_Feedback de la Propuesta_FeedbackID_PropuestaID", x => new { x.FeedbackID, x.PropuestaID });
+                    table.ForeignKey(
+                        name: "FK_Feedback de la Propuesta_Feedbacks_FeedbackID1",
+                        column: x => x.FeedbackID1,
+                        principalTable: "Feedbacks",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Feedback de la Propuesta_Propuesta_PropuestaID",
+                        column: x => x.PropuestaID,
+                        principalTable: "Propuesta",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -191,6 +265,11 @@ namespace IgnisMercado.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Feedback de la Propuesta_FeedbackID1",
+                table: "Feedback de la Propuesta",
+                column: "FeedbackID1");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -211,10 +290,22 @@ namespace IgnisMercado.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Competencia");
+
+            migrationBuilder.DropTable(
+                name: "Feedback de la Propuesta");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Feedbacks");
+
+            migrationBuilder.DropTable(
+                name: "Propuesta");
         }
     }
 }

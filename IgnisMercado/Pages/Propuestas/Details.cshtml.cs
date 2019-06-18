@@ -11,9 +11,9 @@ namespace IgnisMercado.Pages.Propuestas
 {
     public class DetailsModel : PageModel
     {
-        private readonly IgnisMercado.Models.IgnisContext _context;
+        private readonly IgnisMercado.Models.ApplicationContext _context;
 
-        public DetailsModel(IgnisMercado.Models.IgnisContext context)
+        public DetailsModel(IgnisMercado.Models.ApplicationContext context)
         {
             _context = context;
         }

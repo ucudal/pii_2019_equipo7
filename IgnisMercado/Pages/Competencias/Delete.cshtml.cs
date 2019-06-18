@@ -11,9 +11,9 @@ namespace IgnisMercado.Pages.Competencias
 {
     public class DeleteModel : PageModel
     {
-        private readonly IgnisMercado.Models.IgnisContext _context;
+        private readonly IgnisMercado.Models.ApplicationContext _context;
 
-        public DeleteModel(IgnisMercado.Models.IgnisContext context)
+        public DeleteModel(IgnisMercado.Models.ApplicationContext context)
         {
             _context = context;
         }

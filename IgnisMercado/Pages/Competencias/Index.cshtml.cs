@@ -11,9 +11,9 @@ namespace IgnisMercado.Pages.Competencias
 {
     public class IndexModel : PageModel
     {
-        private readonly IgnisMercado.Models.IgnisContext _context;
+        private readonly IgnisMercado.Models.ApplicationContext _context;
 
-        public IndexModel(IgnisMercado.Models.IgnisContext context)
+        public IndexModel(IgnisMercado.Models.ApplicationContext context)
         {
             _context = context;
         }

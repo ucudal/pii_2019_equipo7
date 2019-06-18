@@ -11,9 +11,9 @@ namespace IgnisMercado.Pages.Feedbacks
 {
     public class CreateModel : PageModel
     {
-        private readonly IgnisMercado.Models.IgnisContext _context;
+        private readonly IgnisMercado.Models.ApplicationContext _context;
 
-        public CreateModel(IgnisMercado.Models.IgnisContext context)
+        public CreateModel(IgnisMercado.Models.ApplicationContext context)
         {
             _context = context;
         }
@@ -33,7 +33,7 @@ namespace IgnisMercado.Pages.Feedbacks
                 return Page();
             }
 
-            _context.Feedback.Add(Feedback);
+            _context.Feedbacks.Add(Feedback);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

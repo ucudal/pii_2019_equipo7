@@ -3,38 +3,46 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 
+
 namespace IgnisMercado.Models
 {
     public static class SeedData
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var context = new IgnisContext(
+            using (var context = new ApplicationContext(
                 serviceProvider.GetRequiredService<
-                    DbContextOptions<IgnisContext>>()))
+                    DbContextOptions<ApplicationContext>>()))
             {
-                // Propuetas
-                if (context.Propuesta.Any())
-                {
-                    return;   // DB has been seeded
-                }
+                SeedPropuesta(context);
 
-                context.Propuesta.AddRange(
-
-                    new Propuesta
-                    {
-                        Title = "When Harry Met Sally",
-                       // NivelDeDificultad = "Alta",
-                        //EstimadoPorHora = "6",
-                        //Estado = "Aierto",
-                        DescripcionDeLaPropuesta = "test"
-
-                    }
-
-
-                );
-                context.SaveChanges();
             }
+         }
+        private static void SeedPropuesta(ApplicationContext context)
+        {
+            // Busca Propuestas.
+            if (context.Propuesta.Any())
+            {
+                return;   // DB ha sido poblada.
+            }
+            context.Propuesta
+            
+            
+            
+            .AddRange(
+                new Propuesta
+                {
+                    Title = "Propuesta Laboral para Camarografo",
+                    NivelDeDificultad = "Avanzado",
+                    EstimadoDeHora = 12,
+                    DescripcionDeLaPropuesta = "Se necesita camarografo con nivel avanzado para realizar un filme corto."
+                }
+            
+            );
+            context.SaveChanges();
+               
+
         }
-    }
+    
+     }
 }

@@ -5,7 +5,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Editar</h1>
+<h1>Edit</h1>
 
 <h4>Propuesta</h4>
 <hr />
@@ -20,17 +20,19 @@
                 <span asp-validation-for="Propuesta.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NiveleDif" class="control-label">Nivel De Dificultad:</label>
-               
-                @{
-                List<SelectListItem> listItems = new List<SelectListItem>(Model.NivelesDif);
-                }
-                @Html.DropDownListFor(model => model.NiveleDif, listItems, "-- Select --", new { @class = "form-control" })
+                <label asp-for="Propuesta.NivelDeDificultad" class="control-label"></label>
+                <input asp-for="Propuesta.NivelDeDificultad" class="form-control" />
+                <span asp-validation-for="Propuesta.NivelDeDificultad" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Propuesta.EstimadoDeHora" class="control-label"></label>
                 <input asp-for="Propuesta.EstimadoDeHora" class="form-control" />
                 <span asp-validation-for="Propuesta.EstimadoDeHora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Propuesta.CostoEstimado" class="control-label"></label>
+                <input asp-for="Propuesta.CostoEstimado" class="form-control" />
+                <span asp-validation-for="Propuesta.CostoEstimado" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Propuesta.Estado" class="control-label"></label>
@@ -43,6 +45,21 @@
                 <span asp-validation-for="Propuesta.DescripcionDeLaPropuesta" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Propuesta.ListaDeTecnicosPostulados" class="control-label"></label>
+                <input asp-for="Propuesta.ListaDeTecnicosPostulados" class="form-control" />
+                <span asp-validation-for="Propuesta.ListaDeTecnicosPostulados" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Propuesta.TecnicoAsignado" class="control-label"></label>
+                <input asp-for="Propuesta.TecnicoAsignado" class="form-control" />
+                <span asp-validation-for="Propuesta.TecnicoAsignado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Propuesta.FechaLimite" class="control-label"></label>
+                <input asp-for="Propuesta.FechaLimite" class="form-control" />
+                <span asp-validation-for="Propuesta.FechaLimite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
@@ -50,7 +67,7 @@
 </div>
 
 <div>
-    <a asp-page="./Index">Volver a la lista de propuetas</a>
+    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {
