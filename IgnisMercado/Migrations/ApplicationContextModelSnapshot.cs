@@ -140,7 +140,7 @@ namespace IgnisMercado.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Propuestas");
+                    b.ToTable("Propuesta");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

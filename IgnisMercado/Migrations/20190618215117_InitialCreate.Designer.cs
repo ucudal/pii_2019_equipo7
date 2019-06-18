@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IgnisMercado.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20190618054320_InitialCreate")]
+    [Migration("20190618215117_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -142,7 +142,7 @@ namespace IgnisMercado.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Propuestas");
+                    b.ToTable("Propuesta");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

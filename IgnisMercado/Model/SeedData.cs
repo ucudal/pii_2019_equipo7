@@ -21,11 +21,15 @@ namespace IgnisMercado.Models
         private static void SeedPropuesta(ApplicationContext context)
         {
             // Busca Propuestas.
-            if (context.Propuestas.Any())
+            if (context.Propuesta.Any())
             {
                 return;   // DB ha sido poblada.
             }
-            context.Propuestas.AddRange(
+            context.Propuesta
+            
+            
+            
+            .AddRange(
                 new Propuesta
                 {
                     Title = "Propuesta Laboral para Camarografo",

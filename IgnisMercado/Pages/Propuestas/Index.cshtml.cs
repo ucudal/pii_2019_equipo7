@@ -23,7 +23,7 @@ namespace IgnisMercado.Pages.Propuestas
 
         public async Task OnGetAsync()
         {
-            Propuesta = await _context.Propuestas.ToListAsync();
+            Propuesta = await _context.Propuesta.ToListAsync();
         }
         // public PropuestaIndexData Propuesta { get; set; }
         // public int PropuestaID { get; set; }

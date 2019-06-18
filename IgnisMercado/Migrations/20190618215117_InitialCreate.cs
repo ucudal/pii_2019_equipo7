@@ -77,7 +77,7 @@ namespace IgnisMercado.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Propuestas",
+                name: "Propuesta",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
@@ -94,7 +94,7 @@ namespace IgnisMercado.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Propuestas", x => x.ID);
+                    table.PrimaryKey("PK_Propuesta", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -222,9 +222,9 @@ namespace IgnisMercado.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Feedback de la Propuesta_Propuestas_PropuestaID",
+                        name: "FK_Feedback de la Propuesta_Propuesta_PropuestaID",
                         column: x => x.PropuestaID,
-                        principalTable: "Propuestas",
+                        principalTable: "Propuesta",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -305,7 +305,7 @@ namespace IgnisMercado.Migrations
                 name: "Feedbacks");
 
             migrationBuilder.DropTable(
-                name: "Propuestas");
+                name: "Propuesta");
         }
     }
 }

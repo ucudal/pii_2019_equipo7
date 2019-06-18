@@ -31,6 +31,7 @@ namespace IgnisMercado.Models
         public DateTime FechaLimite{get; private set;}
         [Display(Name = "Fecha Límite De La Propuesta")]
 
+        //Se utiliza el patron expert y se otorga la responsabilidad a la clase propuesta de Calcular Costo Estimado ya que tiene toda la informacion  para hacerlo.
         public void CalcularCostoEstimado(){
             int result=0;
             if(this.NivelDeDificultad == IgnisData.NivelesDeDificultad[0]){

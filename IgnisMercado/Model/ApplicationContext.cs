@@ -25,7 +25,7 @@ namespace IgnisMercado.Models
             builder.Entity<FeedbackPropuesta>().ToTable("Feedback de la Propuesta")
             .HasKey(a => new { a.PropuestaID, a.FeedbackID });
         }
-        public DbSet<IgnisMercado.Models.Propuesta> Propuestas { get; set; }
+        public DbSet<IgnisMercado.Models.Propuesta> Propuesta { get; set; }
 
         public DbSet<IgnisMercado.Models.Feedback> Feedbacks { get; set; }
 
