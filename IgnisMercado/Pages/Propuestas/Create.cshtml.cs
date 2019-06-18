@@ -11,9 +11,9 @@ namespace IgnisMercado.Pages.Propuestas
 {
     public class CreateModel : PageModel
     {
-        private readonly IgnisMercado.Models.IgnisContext _context;
+        private readonly IgnisMercado.Models.ApplicationContext _context;
 
-        public CreateModel(IgnisMercado.Models.IgnisContext context)
+        public CreateModel(IgnisMercado.Models.ApplicationContext context)
         {
             _context = context;
         }
@@ -33,7 +33,7 @@ namespace IgnisMercado.Pages.Propuestas
                 return Page();
             }
 
-            _context.Propuesta.Add(Propuesta);
+            _context.Propuestas.Add(Propuesta);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

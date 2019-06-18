@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using IgnisMercado.Areas.Identity.Data;
 
-namespace IgnisMercado.Areas.Identity.Data
+namespace IgnisMercado.Models
 {
-    public class IdentityContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationContext : IdentityDbContext<ApplicationUser>
     {
-        public IdentityContext(DbContextOptions<IdentityContext> options)
+        public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
         }
@@ -22,6 +22,15 @@ namespace IgnisMercado.Areas.Identity.Data
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
+            builder.Entity<FeedbackPropuesta>().ToTable("Feedback de la Propuesta")
+            .HasKey(a => new { a.PropuestaID, a.FeedbackID });
         }
+        public DbSet<IgnisMercado.Models.Propuesta> Propuestas { get; set; }
+
+        public DbSet<IgnisMercado.Models.Feedback> Feedbacks { get; set; }
+
+        public DbSet<FeedbackPropuesta> FeedbackPropuesta { get; set; }
+
+        public DbSet<Competencia> Competencia { get; set; }
     }
 }

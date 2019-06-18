@@ -12,9 +12,9 @@ namespace IgnisMercado.Pages.Feedbacks
 {
     public class EditModel : PageModel
     {
-        private readonly IgnisMercado.Models.IgnisContext _context;
+        private readonly IgnisMercado.Models.ApplicationContext _context;
 
-        public EditModel(IgnisMercado.Models.IgnisContext context)
+        public EditModel(IgnisMercado.Models.ApplicationContext context)
         {
             _context = context;
         }
@@ -29,7 +29,7 @@ namespace IgnisMercado.Pages.Feedbacks
                 return NotFound();
             }
 
-            Feedback = await _context.Feedback.FirstOrDefaultAsync(m => m.ID == id);
+            Feedback = await _context.Feedbacks.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Feedback == null)
             {
@@ -68,7 +68,7 @@ namespace IgnisMercado.Pages.Feedbacks
 
         private bool FeedbackExists(int id)
         {
-            return _context.Feedback.Any(e => e.ID == id);
+            return _context.Feedbacks.Any(e => e.ID == id);
         }
     }
 }

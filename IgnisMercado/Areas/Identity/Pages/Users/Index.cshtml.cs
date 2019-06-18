@@ -13,9 +13,9 @@ namespace IgnisMercado.Areas.Identity.Pages.Users
     [Authorize(Roles=IdentityData.AdminRoleName)] // Solo los usuarios con rol administrador pueden acceder a este controlador
     public class IndexModel : PageModel
     {
-        private readonly IgnisMercado.Areas.Identity.Data.IdentityContext _context;
+        private readonly IgnisMercado.Models.ApplicationContext _context;
 
-        public IndexModel(IgnisMercado.Areas.Identity.Data.IdentityContext context)
+        public IndexModel(IgnisMercado.Models.ApplicationContext context)
         {
             _context = context;
         }

@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using IgnisMercado.Areas.Identity.Data;
+using IgnisMercado.Models;
 
 [assembly: HostingStartup(typeof(IgnisMercado.Areas.Identity.IdentityHostingStartup))]
 namespace IgnisMercado.Areas.Identity
@@ -17,7 +18,7 @@ namespace IgnisMercado.Areas.Identity
             builder.ConfigureServices((context, services) => {
                 services.AddDefaultIdentity<ApplicationUser>()
                     .AddRoles<IdentityRole>()
-                    .AddEntityFrameworkStores<IdentityContext>();
+                    .AddEntityFrameworkStores<ApplicationContext>();
             });
         }
     }

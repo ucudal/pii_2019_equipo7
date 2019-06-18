@@ -11,9 +11,9 @@ namespace IgnisMercado.Pages.Feedbacks
 {
     public class DetailsModel : PageModel
     {
-        private readonly IgnisMercado.Models.IgnisContext _context;
+        private readonly IgnisMercado.Models.ApplicationContext _context;
 
-        public DetailsModel(IgnisMercado.Models.IgnisContext context)
+        public DetailsModel(IgnisMercado.Models.ApplicationContext context)
         {
             _context = context;
         }
@@ -27,7 +27,7 @@ namespace IgnisMercado.Pages.Feedbacks
                 return NotFound();
             }
 
-            Feedback = await _context.Feedback.FirstOrDefaultAsync(m => m.ID == id);
+            Feedback = await _context.Feedbacks.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Feedback == null)
             {

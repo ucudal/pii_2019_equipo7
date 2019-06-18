@@ -22,7 +22,7 @@ namespace IgnisMercado
                 try
                 {
                     var context=services.
-                        GetRequiredService<IgnisContext>();
+                        GetRequiredService<ApplicationContext >();
                     context.Database.Migrate();
                     SeedData.Initialize(services);
                     SeedIdentityData.Initialize(services);
