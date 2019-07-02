@@ -36,7 +36,48 @@ namespace IgnisMercado.Models
                     EstimadoDeHora = 12,
                     DescripcionDeLaPropuesta = "Se necesita camarografo con nivel avanzado para realizar un filme corto."
                 }
+            );
             
+            if (context.Tecnico.Any())
+            {
+                return;   // DB ha sido poblada.
+            }
+            context.Tecnico
+
+            .AddRange(
+                new Tecnico
+                {
+                    Edad = 22,
+                    NivelEducativo = "Avanzado",
+                    Nombre = "Jorge",
+                    CorreoElectronico = "jorge@contoso.com",
+                    Contacto = "095478654"
+                    
+                },
+                new Tecnico
+                {
+                    Edad = 24,
+                    NivelEducativo = "Intermedio",
+                    Nombre = "Camila",
+                    CorreoElectronico = "camila@contoso.com",
+                    Contacto = "097745658"
+                },
+                new Tecnico
+                {
+                    Edad = 26,
+                    NivelEducativo = "Basico",
+                    Nombre = "Daniel",
+                    CorreoElectronico = "daniel@contoso.com",
+                    Contacto = "099545847"
+                },
+                new Tecnico
+                {
+                    Edad = 32,
+                    NivelEducativo = "Avanzado",
+                    Nombre = "Claudia",
+                    CorreoElectronico = "claudia@contoso.com",
+                    Contacto = "098458654"
+                }
             );
             context.SaveChanges();
                
