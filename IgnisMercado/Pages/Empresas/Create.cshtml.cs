@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using IgnisMercado.Models;
 
-namespace IgnisMercado.Pages.Feedbacks
+namespace IgnisMercado.Pages.Empresas
 {
     public class CreateModel : PageModel
     {
@@ -24,7 +24,7 @@ namespace IgnisMercado.Pages.Feedbacks
         }
 
         [BindProperty]
-        public Feedback Feedback { get; set; }
+        public Empresa Empresa { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -33,7 +33,7 @@ namespace IgnisMercado.Pages.Feedbacks
                 return Page();
             }
 
-            _context.Feedbacks.Add(Feedback);
+            _context.Empresa.Add(Empresa);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

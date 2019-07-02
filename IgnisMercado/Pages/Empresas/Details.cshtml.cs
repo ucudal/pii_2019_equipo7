@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using IgnisMercado.Models;
 
-namespace IgnisMercado.Pages.Feedbacks
+namespace IgnisMercado.Pages.Empresas
 {
     public class DetailsModel : PageModel
     {
@@ -18,7 +18,7 @@ namespace IgnisMercado.Pages.Feedbacks
             _context = context;
         }
 
-        public Feedback Feedback { get; set; }
+        public Empresa Empresa { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -27,9 +27,9 @@ namespace IgnisMercado.Pages.Feedbacks
                 return NotFound();
             }
 
-            Feedback = await _context.Feedbacks.FirstOrDefaultAsync(m => m.ID == id);
+            Empresa = await _context.Empresa.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Feedback == null)
+            if (Empresa == null)
             {
                 return NotFound();
             }

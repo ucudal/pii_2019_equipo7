@@ -72,47 +72,24 @@ namespace IgnisMercado.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("IgnisMercado.Models.Competencia", b =>
+            modelBuilder.Entity("IgnisMercado.Models.Empresa", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("NivelBasicoOAvanzado");
+                    b.Property<string>("Contacto");
 
-                    b.Property<string>("PrecioPorHora");
+                    b.Property<string>("CorreoElectronico");
 
-                    b.HasKey("ID");
+                    b.Property<string>("Descricpion");
 
-                    b.ToTable("Competencia");
-                });
+                    b.Property<string>("Director");
 
-            modelBuilder.Entity("IgnisMercado.Models.Feedback", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("ValoracionDelTrabajo");
+                    b.Property<string>("Nombre");
 
                     b.HasKey("ID");
 
-                    b.ToTable("Feedbacks");
-                });
-
-            modelBuilder.Entity("IgnisMercado.Models.FeedbackPropuesta", b =>
-                {
-                    b.Property<int>("PropuestaID");
-
-                    b.Property<int>("FeedbackID");
-
-                    b.Property<int>("FeedbackID1");
-
-                    b.HasKey("PropuestaID", "FeedbackID");
-
-                    b.HasAlternateKey("FeedbackID", "PropuestaID");
-
-                    b.HasIndex("FeedbackID1");
-
-                    b.ToTable("Feedback de la Propuesta");
+                    b.ToTable("Empresa");
                 });
 
             modelBuilder.Entity("IgnisMercado.Models.Propuesta", b =>
@@ -141,6 +118,26 @@ namespace IgnisMercado.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Propuesta");
+                });
+
+            modelBuilder.Entity("IgnisMercado.Models.Tecnico", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Contacto");
+
+                    b.Property<string>("CorreoElectronico");
+
+                    b.Property<int>("Edad");
+
+                    b.Property<string>("NivelEducativo");
+
+                    b.Property<string>("Nombre");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Tecnico");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -252,19 +249,6 @@ namespace IgnisMercado.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("IgnisMercado.Models.FeedbackPropuesta", b =>
-                {
-                    b.HasOne("IgnisMercado.Models.Feedback", "Feedback")
-                        .WithMany()
-                        .HasForeignKey("FeedbackID1")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("IgnisMercado.Models.Propuesta", "Propuesta")
-                        .WithMany()
-                        .HasForeignKey("PropuestaID")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

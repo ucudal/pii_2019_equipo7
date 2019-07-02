@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using IgnisMercado.Models;
 
-namespace IgnisMercado.Pages.Competencias
+namespace IgnisMercado.Pages.Tecnicos
 {
     public class CreateModel : PageModel
     {
@@ -24,7 +24,7 @@ namespace IgnisMercado.Pages.Competencias
         }
 
         [BindProperty]
-        public Competencia Competencia { get; set; }
+        public Tecnico Tecnico { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -33,7 +33,7 @@ namespace IgnisMercado.Pages.Competencias
                 return Page();
             }
 
-            _context.Competencia.Add(Competencia);
+            _context.Tecnico.Add(Tecnico);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

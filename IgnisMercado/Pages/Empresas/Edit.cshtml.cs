@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using IgnisMercado.Models;
 
-namespace IgnisMercado.Pages.Feedbacks
+namespace IgnisMercado.Pages.Empresas
 {
     public class EditModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace IgnisMercado.Pages.Feedbacks
         }
 
         [BindProperty]
-        public Feedback Feedback { get; set; }
+        public Empresa Empresa { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,9 +29,9 @@ namespace IgnisMercado.Pages.Feedbacks
                 return NotFound();
             }
 
-            Feedback = await _context.Feedbacks.FirstOrDefaultAsync(m => m.ID == id);
+            Empresa = await _context.Empresa.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Feedback == null)
+            if (Empresa == null)
             {
                 return NotFound();
             }
@@ -45,7 +45,7 @@ namespace IgnisMercado.Pages.Feedbacks
                 return Page();
             }
 
-            _context.Attach(Feedback).State = EntityState.Modified;
+            _context.Attach(Empresa).State = EntityState.Modified;
 
             try
             {
@@ -53,7 +53,7 @@ namespace IgnisMercado.Pages.Feedbacks
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!FeedbackExists(Feedback.ID))
+                if (!EmpresaExists(Empresa.ID))
                 {
                     return NotFound();
                 }
@@ -66,9 +66,9 @@ namespace IgnisMercado.Pages.Feedbacks
             return RedirectToPage("./Index");
         }
 
-        private bool FeedbackExists(int id)
+        private bool EmpresaExists(int id)
         {
-            return _context.Feedbacks.Any(e => e.ID == id);
+            return _context.Empresa.Any(e => e.ID == id);
         }
     }
 }

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using IgnisMercado.Models;
 
-namespace IgnisMercado.Pages.Competencias
+namespace IgnisMercado.Pages.Tecnicos
 {
     public class EditModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace IgnisMercado.Pages.Competencias
         }
 
         [BindProperty]
-        public Competencia Competencia { get; set; }
+        public Tecnico Tecnico { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,9 +29,9 @@ namespace IgnisMercado.Pages.Competencias
                 return NotFound();
             }
 
-            Competencia = await _context.Competencia.FirstOrDefaultAsync(m => m.ID == id);
+            Tecnico = await _context.Tecnico.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Competencia == null)
+            if (Tecnico == null)
             {
                 return NotFound();
             }
@@ -45,7 +45,7 @@ namespace IgnisMercado.Pages.Competencias
                 return Page();
             }
 
-            _context.Attach(Competencia).State = EntityState.Modified;
+            _context.Attach(Tecnico).State = EntityState.Modified;
 
             try
             {
@@ -53,7 +53,7 @@ namespace IgnisMercado.Pages.Competencias
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CompetenciaExists(Competencia.ID))
+                if (!TecnicoExists(Tecnico.ID))
                 {
                     return NotFound();
                 }
@@ -66,9 +66,9 @@ namespace IgnisMercado.Pages.Competencias
             return RedirectToPage("./Index");
         }
 
-        private bool CompetenciaExists(int id)
+        private bool TecnicoExists(int id)
         {
-            return _context.Competencia.Any(e => e.ID == id);
+            return _context.Tecnico.Any(e => e.ID == id);
         }
     }
 }

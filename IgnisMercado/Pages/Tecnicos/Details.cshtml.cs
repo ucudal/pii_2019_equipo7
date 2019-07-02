@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using IgnisMercado.Models;
 
-namespace IgnisMercado.Pages.Competencias
+namespace IgnisMercado.Pages.Tecnicos
 {
     public class DetailsModel : PageModel
     {
@@ -18,7 +18,7 @@ namespace IgnisMercado.Pages.Competencias
             _context = context;
         }
 
-        public Competencia Competencia { get; set; }
+        public Tecnico Tecnico { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -27,9 +27,9 @@ namespace IgnisMercado.Pages.Competencias
                 return NotFound();
             }
 
-            Competencia = await _context.Competencia.FirstOrDefaultAsync(m => m.ID == id);
+            Tecnico = await _context.Tecnico.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Competencia == null)
+            if (Tecnico == null)
             {
                 return NotFound();
             }

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using IgnisMercado.Models;
 
-namespace IgnisMercado.Pages.Competencias
+namespace IgnisMercado.Pages.Tecnicos
 {
     public class IndexModel : PageModel
     {
@@ -18,11 +18,11 @@ namespace IgnisMercado.Pages.Competencias
             _context = context;
         }
 
-        public IList<Competencia> Competencia { get;set; }
+        public IList<Tecnico> Tecnico { get;set; }
 
         public async Task OnGetAsync()
         {
-            Competencia = await _context.Competencia.ToListAsync();
+            Tecnico = await _context.Tecnico.ToListAsync();
         }
     }
 }

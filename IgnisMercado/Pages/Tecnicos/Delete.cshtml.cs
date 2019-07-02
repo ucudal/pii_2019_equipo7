@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using IgnisMercado.Models;
 
-namespace IgnisMercado.Pages.Competencias
+namespace IgnisMercado.Pages.Tecnicos
 {
     public class DeleteModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace IgnisMercado.Pages.Competencias
         }
 
         [BindProperty]
-        public Competencia Competencia { get; set; }
+        public Tecnico Tecnico { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,9 +28,9 @@ namespace IgnisMercado.Pages.Competencias
                 return NotFound();
             }
 
-            Competencia = await _context.Competencia.FirstOrDefaultAsync(m => m.ID == id);
+            Tecnico = await _context.Tecnico.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Competencia == null)
+            if (Tecnico == null)
             {
                 return NotFound();
             }
@@ -44,11 +44,11 @@ namespace IgnisMercado.Pages.Competencias
                 return NotFound();
             }
 
-            Competencia = await _context.Competencia.FindAsync(id);
+            Tecnico = await _context.Tecnico.FindAsync(id);
 
-            if (Competencia != null)
+            if (Tecnico != null)
             {
-                _context.Competencia.Remove(Competencia);
+                _context.Tecnico.Remove(Tecnico);
                 await _context.SaveChangesAsync();
             }
 
