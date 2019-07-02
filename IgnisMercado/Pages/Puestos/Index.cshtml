@@ -1,0 +1,36 @@
+@page
+@model IgnisMercado.Pages.Puestos.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Puesto[0].TrabajoName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Puesto) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrabajoName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PrpuestaID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PrpuestaID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PrpuestaID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

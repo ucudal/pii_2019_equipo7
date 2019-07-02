@@ -10,7 +10,7 @@ namespace IgnisMercado.Models.IgnisViewModel
     {
         public IEnumerable<Propuesta> Propuesta { get; set; }
         
-        public IEnumerable<ApplicationUser> Usuarios { get; set; }
+        public IEnumerable<Tecnico> Tecnicos  { get; set; }
 
         
        
