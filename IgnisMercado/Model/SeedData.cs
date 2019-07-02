@@ -33,7 +33,6 @@ namespace IgnisMercado.Models
                 new Propuesta
                 {
                     Title = "Propuesta Laboral para Camarografo",
-                    NivelDeDificultad = "Avanzado",
                     EstimadoDeHora = 12,
                     DescripcionDeLaPropuesta = "Se necesita camarografo con nivel avanzado para realizar un filme corto."
                 }

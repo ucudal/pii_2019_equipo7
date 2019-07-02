@@ -13,9 +13,8 @@ namespace IgnisMercado.Models
         public  int ID { get; set; }
         [Display(Name = "Title")]
         public string Title { get; set; }
-        [Display(Name = "Nivel De Dificultad")]
-        public string NivelDeDificultad { get; set; }
-       [Display(Name = "Estimado De Hora")]
+
+        [Display(Name = "Estimado De Hora")]
         public int EstimadoDeHora { get; set; }
         [Display(Name = "Costo Estimado")]
         public int CostoEstimado { get; private set; }
@@ -23,16 +22,17 @@ namespace IgnisMercado.Models
         public string Estado{ get; private set; }
         [Display(Name = "Descripcion De La Propuesta")]
         public string DescripcionDeLaPropuesta { get; set; }    
-        [Display(Name = "Lista De Tecnicos Postulados")]    
-        public string ListaDeTecnicosPostulados { get; private set; }
         [Display(Name = "Tecnico Asignado")]
-        public string TecnicoAsignado { get; 
-        private set; }
-        public DateTime FechaLimite{get; private set;}
+        public Tecnico TecnicoAsignado { get; set; }
+        [Display(Name = "Empresa")]
+        public Empresa Empresa {get;set;}
+        
         [Display(Name = "Fecha Límite De La Propuesta")]
+        public DateTime FechaLimite{get; private set;}
+        
 
         //Se utiliza el patron expert y se otorga la responsabilidad a la clase propuesta de Calcular Costo Estimado ya que tiene toda la informacion  para hacerlo.
-        public void CalcularCostoEstimado(){
+      /*  public void CalcularCostoEstimado(){
             int result=0;
             if(this.NivelDeDificultad == IgnisData.NivelesDeDificultad[0]){
             result= this.EstimadoDeHora*IgnisData.PrecioHoraBasico;
@@ -41,7 +41,7 @@ namespace IgnisMercado.Models
              result= this.EstimadoDeHora*IgnisData.PrecioHoraAvanzado;
             }
             this.CostoEstimado=result;
-        }
+        }*/
        
     }
 }
