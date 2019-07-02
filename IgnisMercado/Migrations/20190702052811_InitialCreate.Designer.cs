@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IgnisMercado.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20190702051144_InitialCreate")]
+    [Migration("20190702052811_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -72,6 +72,23 @@ namespace IgnisMercado.Migrations
                         .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("IgnisMercado.Models.AsiganrTecnico", b =>
+                {
+                    b.Property<int>("TecnicoID");
+
+                    b.Property<int>("PropuestaID");
+
+                    b.Property<int>("PrpuestaID");
+
+                    b.HasKey("TecnicoID", "PropuestaID");
+
+                    b.HasAlternateKey("PropuestaID", "TecnicoID");
+
+                    b.HasIndex("PrpuestaID");
+
+                    b.ToTable("AsiganrTecnico");
                 });
 
             modelBuilder.Entity("IgnisMercado.Models.Empresa", b =>
@@ -269,6 +286,19 @@ namespace IgnisMercado.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("IgnisMercado.Models.AsiganrTecnico", b =>
+                {
+                    b.HasOne("IgnisMercado.Models.Propuesta", "Prpuesta")
+                        .WithMany()
+                        .HasForeignKey("PrpuestaID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("IgnisMercado.Models.Tecnico", "Tecnico")
+                        .WithMany()
+                        .HasForeignKey("TecnicoID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("IgnisMercado.Models.Propuesta", b =>

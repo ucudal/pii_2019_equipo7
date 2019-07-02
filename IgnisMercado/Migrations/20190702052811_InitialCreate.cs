@@ -222,6 +222,32 @@ namespace IgnisMercado.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AsiganrTecnico",
+                columns: table => new
+                {
+                    TecnicoID = table.Column<int>(nullable: false),
+                    PropuestaID = table.Column<int>(nullable: false),
+                    PrpuestaID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AsiganrTecnico", x => new { x.TecnicoID, x.PropuestaID });
+                    table.UniqueConstraint("AK_AsiganrTecnico_PropuestaID_TecnicoID", x => new { x.PropuestaID, x.TecnicoID });
+                    table.ForeignKey(
+                        name: "FK_AsiganrTecnico_Propuesta_PrpuestaID",
+                        column: x => x.PrpuestaID,
+                        principalTable: "Propuesta",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AsiganrTecnico_Tecnico_TecnicoID",
+                        column: x => x.TecnicoID,
+                        principalTable: "Tecnico",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Puesto",
                 columns: table => new
                 {
@@ -240,6 +266,11 @@ namespace IgnisMercado.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AsiganrTecnico_PrpuestaID",
+                table: "AsiganrTecnico",
+                column: "PrpuestaID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -296,6 +327,9 @@ namespace IgnisMercado.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AsiganrTecnico");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
