@@ -7,15 +7,20 @@ namespace IgnisMercadoTest
 {
     public class IgnisMercadoTest{
         [Fact]
-        public void CalculoEstimadoDeHorasTest()
+        public void TecncicoTest()
         {
-           /*Propuesta Propuesta = new Propuesta();
-            Propuesta.EstimadoDeHora=150;
-            Propuesta.NivelDeDificultad=IgnisData.NivelesDeDificultad[0];
-            int esperado= Propuesta.EstimadoDeHora*IgnisData.PrecioHoraBasico;
-            Propuesta.CalcularCostoEstimado();
-            Assert.Equal(esperado,Propuesta.CostoEstimado);*/
+            Tecnico tecnico1 = new Tecnico();
+            tecnico1.Nombre = "Jorge";
+            tecnico1.Contacto = "095478654";
+            tecnico1.CorreoElectronico = "jorge@contoso.com";
+            tecnico1.Edad = 22;
+    
+            Assert.Equal("Jorge",tecnico1.Nombre);
+            Assert.Equal("095478654",tecnico1.Contacto);
+            Assert.Equal("jorge@contoso.com",tecnico1.CorreoElectronico);
+            Assert.Equal(22,tecnico1.Edad);
         }
+        
 
 
 

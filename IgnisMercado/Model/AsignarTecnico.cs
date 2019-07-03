@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace IgnisMercado.Models
 {
-    public class AsiganrTecnico
+    public class AsignarTecnico
     {
         [Key]
         public int TecnicoID { get; set; }

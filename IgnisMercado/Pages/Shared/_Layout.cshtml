@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Movie</title>
+    <title>@ViewData["Title"] - Ignis Mercado</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -35,17 +35,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="Propuestas/Index">Propuestas</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="Feedbacks/Index">Feedbacks</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacidad</a>
-                        </li>
-                        <li class="nav-item">
-                            @if (User.IsInRole(IdentityData.AdminRoleName))
-                            {
-                                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Users/Index">Usuarios</a>
-                            }
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />

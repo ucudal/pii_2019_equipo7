@@ -19,7 +19,7 @@ namespace IgnisMercado.Models
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-             builder.Entity<AsiganrTecnico>().ToTable("AsiganrTecnico")
+             builder.Entity<AsignarTecnico>().ToTable("AsiganrTecnico")
                  .HasKey(a => new { a.TecnicoID, a.PropuestaID });
         }
         public DbSet<IgnisMercado.Models.Propuesta> Propuesta { get; set; }
@@ -27,7 +27,7 @@ namespace IgnisMercado.Models
         public DbSet<IgnisMercado.Models.Empresa> Empresa { get; set; }
         public DbSet<IgnisMercado.Models.Puesto> Puesto { get; set; }
 
-        public DbSet<IgnisMercado.Models.AsiganrTecnico> AsiganrTecnico { get; set; }
+        public DbSet<IgnisMercado.Models.AsignarTecnico> AsiganrTecnico { get; set; }
 
       public bool ActorExists(int id)
         {

@@ -12,9 +12,7 @@ namespace IgnisMercado.Models
 
         [Display(Name = "Puesto")]
         public string TrabajoName { get; set; }
-
         
-
         public Propuesta Propuesta { get; set; }
     }
 }
