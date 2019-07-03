@@ -31,17 +31,7 @@ namespace IgnisMercado.Models
         public DateTime FechaLimite{get; private set;}
         
 
-        //Se utiliza el patron expert y se otorga la responsabilidad a la clase propuesta de Calcular Costo Estimado ya que tiene toda la informacion  para hacerlo.
-      /*  public void CalcularCostoEstimado(){
-            int result=0;
-            if(this.NivelDeDificultad == IgnisData.NivelesDeDificultad[0]){
-            result= this.EstimadoDeHora*IgnisData.PrecioHoraBasico;
-            }
-            else if (this.NivelDeDificultad == IgnisData.NivelesDeDificultad[1]){
-             result= this.EstimadoDeHora*IgnisData.PrecioHoraAvanzado;
-            }
-            this.CostoEstimado=result;
-        }*/
+
        
     }
 }
