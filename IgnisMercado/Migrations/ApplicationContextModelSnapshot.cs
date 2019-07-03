@@ -141,16 +141,11 @@ namespace IgnisMercado.Migrations
 
             modelBuilder.Entity("IgnisMercado.Models.Puesto", b =>
                 {
-                    b.Property<int>("PrpuestaID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("PropuestaID");
+                    b.Property<int>("PropuestaID");
 
                     b.Property<string>("TrabajoName");
 
-                    b.HasKey("PrpuestaID");
-
-                    b.HasIndex("PropuestaID");
+                    b.HasKey("PropuestaID");
 
                     b.ToTable("Puesto");
                 });
@@ -159,6 +154,8 @@ namespace IgnisMercado.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("BirthDate");
 
                     b.Property<string>("Contacto");
 
@@ -289,7 +286,7 @@ namespace IgnisMercado.Migrations
             modelBuilder.Entity("IgnisMercado.Models.AsiganrTecnico", b =>
                 {
                     b.HasOne("IgnisMercado.Models.Propuesta", "Prpuesta")
-                        .WithMany()
+                        .WithMany("AsiganrTecnico")
                         .HasForeignKey("PrpuestaID")
                         .OnDelete(DeleteBehavior.Cascade);
 
@@ -313,8 +310,9 @@ namespace IgnisMercado.Migrations
             modelBuilder.Entity("IgnisMercado.Models.Puesto", b =>
                 {
                     b.HasOne("IgnisMercado.Models.Propuesta", "Propuesta")
-                        .WithMany()
-                        .HasForeignKey("PropuestaID");
+                        .WithOne("Puesto")
+                        .HasForeignKey("IgnisMercado.Models.Puesto", "PropuestaID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -29,12 +29,12 @@ namespace IgnisMercado.Models
 
         public DbSet<IgnisMercado.Models.AsiganrTecnico> AsiganrTecnico { get; set; }
 
-      public bool ActorExists(int id)
+      public bool TecnicoExists(int id)
         {
             return this.Tecnico.Any(e => e.ID == id);
         }
 
-        public async virtual Task<List<IgnisMercado.Models.Tecnico>> GetActorsAsync()
+        public async virtual Task<List<IgnisMercado.Models.Tecnico>> GetTecnicosAsync()
         {
             return await this.Tecnico
                 .AsNoTracking()
@@ -52,9 +52,9 @@ namespace IgnisMercado.Models
             return this.SaveChangesAsync();
         }
 
-        public Task<int> RemoveTecnicoAsync(Tecnico actor)
+        public Task<int> RemoveTecnicoAsync(Tecnico Tecnico)
         {
-            this.Tecnico.Remove(actor);
+            this.Tecnico.Remove(Tecnico);
             return this.SaveChangesAsync();
         }
 

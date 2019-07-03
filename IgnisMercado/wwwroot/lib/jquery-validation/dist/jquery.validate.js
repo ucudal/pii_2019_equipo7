@@ -6,13 +6,13 @@
  * Copyright (c) 2017 Jörn Zaefferer
  * Released under the MIT license
  */
-(function( factory ) {
+(function( fTecnicoy ) {
 	if ( typeof define === "function" && define.amd ) {
-		define( ["jquery"], factory );
+		define( ["jquery"], fTecnicoy );
 	} else if (typeof module === "object" && module.exports) {
-		module.exports = factory( require( "jquery" ) );
+		module.exports = fTecnicoy( require( "jquery" ) );
 	} else {
-		factory( jQuery );
+		fTecnicoy( jQuery );
 	}
 }(function( $ ) {
 

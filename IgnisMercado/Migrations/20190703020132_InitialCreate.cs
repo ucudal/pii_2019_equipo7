@@ -76,7 +76,8 @@ namespace IgnisMercado.Migrations
                     Nombre = table.Column<string>(nullable: true),
                     Contacto = table.Column<string>(nullable: true),
                     Edad = table.Column<int>(nullable: false),
-                    NivelEducativo = table.Column<string>(nullable: true)
+                    NivelEducativo = table.Column<string>(nullable: true),
+                    BirthDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -251,20 +252,18 @@ namespace IgnisMercado.Migrations
                 name: "Puesto",
                 columns: table => new
                 {
-                    PrpuestaID = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    TrabajoName = table.Column<string>(nullable: true),
-                    PropuestaID = table.Column<int>(nullable: true)
+                    PropuestaID = table.Column<int>(nullable: false),
+                    TrabajoName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Puesto", x => x.PrpuestaID);
+                    table.PrimaryKey("PK_Puesto", x => x.PropuestaID);
                     table.ForeignKey(
                         name: "FK_Puesto_Propuesta_PropuestaID",
                         column: x => x.PropuestaID,
                         principalTable: "Propuesta",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -318,11 +317,6 @@ namespace IgnisMercado.Migrations
                 name: "IX_Propuesta_TecnicoAsignadoID",
                 table: "Propuesta",
                 column: "TecnicoAsignadoID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Puesto_PropuestaID",
-                table: "Puesto",
-                column: "PropuestaID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

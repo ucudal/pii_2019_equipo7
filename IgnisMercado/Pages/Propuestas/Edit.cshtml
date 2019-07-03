@@ -54,9 +54,10 @@
 <div>
     <a asp-page="./Index">Back to List</a>
 </div>
+<div class="row">   
 @if (Model.Tecnicos != null)
         {
-            <h4>Cast</h4>
+            <h4>Usuarios asigandos</h4>
             <table class="table">
                 <tr>
                     <th></th>
@@ -67,11 +68,11 @@
 
                 @foreach (var item in Model.Tecnicos)
                 {
-                    string actorToDeleteID = item.ID.ToString();
+                    string TecnicoToDeleteID = item.ID.ToString();
                     <tr>
                         <td>
-                            <form method="post" asp-page-handler="DeleteActor"
-                                asp-route-id="@Model.Propuesta.ID" asp-route-actorToDeleteID="@actorToDeleteID">
+                            <form method="post" asp-page-handler="DeleteTecnico"
+                                asp-route-id="@Model.Propuesta.ID" asp-route-TecnicoToDeleteID="@TecnicoToDeleteID">
                                 <button class="btn btn-default">Delete</button>
                             </form>
                         </td>
@@ -87,13 +88,13 @@
         }
     </div>
 </div>
-
+<div class="container"> 
 <div class="row">
     <div class="col-md-8">
 
         @if (Model.AllTecnicos != null)
         {
-            <h4>Other Actors</h4>
+            <h4>Otros Tecnicos</h4>
             <form>
                 <p>
                     Name: <input type="text" asp-for="SearchString" />
@@ -110,11 +111,11 @@
 
                 @foreach (var item in Model.AllTecnicos)
                 {
-                    string actorToAddID = item.ID.ToString();
+                    string TecnicoToAddID = item.ID.ToString();
                     <tr>
                         <td>
-                            <form method="post" asp-page-handler="AddActor"
-                                asp-route-id="@Model.Propuesta.ID" asp-route-actorToAddID="@actorToAddID">
+                            <form method="post" asp-page-handler="AddTecnico"
+                                asp-route-id="@Model.Propuesta.ID" asp-route-TecnicoToAddID="@TecnicoToAddID">
                                 <button class="btn btn-default">Add</button>
                             </form>
                         </td>

@@ -27,7 +27,7 @@ namespace IgnisMercado.Pages.Puestos
                 return NotFound();
             }
 
-            Puesto = await _context.Puesto.FirstOrDefaultAsync(m => m.PrpuestaID == id);
+            Puesto = await _context.Puesto.FirstOrDefaultAsync(m => m.PropuestaID == id);
 
             if (Puesto == null)
             {

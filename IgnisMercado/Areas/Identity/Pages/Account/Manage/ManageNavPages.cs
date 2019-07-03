@@ -13,7 +13,7 @@ namespace IgnisMercado.Areas.Identity.Pages.Account.Manage
 
         public static string PersonalData => "PersonalData";
 
-        public static string TwoFactorAuthentication => "TwoFactorAuthentication";
+        public static string TwoFTecnicoAuthentication => "TwoFTecnicoAuthentication";
 
         public static string IndexNavClass(ViewContext viewContext) => PageNavClass(viewContext, Index);
 
@@ -23,7 +23,7 @@ namespace IgnisMercado.Areas.Identity.Pages.Account.Manage
 
         public static string PersonalDataNavClass(ViewContext viewContext) => PageNavClass(viewContext, PersonalData);
 
-        public static string TwoFactorAuthenticationNavClass(ViewContext viewContext) => PageNavClass(viewContext, TwoFactorAuthentication);
+        public static string TwoFTecnicoAuthenticationNavClass(ViewContext viewContext) => PageNavClass(viewContext, TwoFTecnicoAuthentication);
 
         private static string PageNavClass(ViewContext viewContext, string page)
         {

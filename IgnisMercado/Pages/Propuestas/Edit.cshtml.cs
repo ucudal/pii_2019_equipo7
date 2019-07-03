@@ -76,9 +76,13 @@ public IEnumerable<Tecnico> AllTecnicos { get; set; }
             if (await TryUpdateModelAsync<Propuesta>(
                 propuestaToUpdate,
                 "Propuesta",
-                i => i.Title, i => i.ReleaseDate,
-                i => i.Price, i => i.Genre,
-                i => i.Puesto))
+                i => i.Title, i => i.FechaLimite,
+                i => i.CostoEstimado, i => i.EstimadoDeHora,
+                i => i.Puesto,i => i.Estado,i => i.DescripcionDeLaPropuesta,i => i.FechaLimite
+                
+                
+                
+                ))
             {
                 if (String.IsNullOrWhiteSpace(propuestaToUpdate.Puesto?.TrabajoName))
                 {
@@ -104,20 +108,20 @@ public IEnumerable<Tecnico> AllTecnicos { get; set; }
             return RedirectToPage("./Index");
         }
 
-        public async Task<IActionResult> OnPostDeleteActorAsync(int id, int actorToDeleteID)
+        public async Task<IActionResult> OnPostDeleteTecnicoAsync(int id, int TecnicoToDeleteID)
         {
             Propuesta propuestaToUpdate = await _context.Propuesta
                 .Include(l => l.Puesto)
                 .Include(a => a.AsiganrTecnico)
-                    .ThenInclude(a => a.Actor)
+                    .ThenInclude(a => a.Tecnico)
                 .FirstOrDefaultAsync(m => m.ID == id);
 
             await TryUpdateModelAsync<Propuesta>(propuestaToUpdate);
 
-            var actorToDelete = propuestaToUpdate.AsiganrTecnico.Where(a => a.ActorID == actorToDeleteID).FirstOrDefault();
-            if (actorToDelete != null)
+            var TecnicoToDelete = propuestaToUpdate.AsiganrTecnico.Where(a => a.TecnicoID == TecnicoToDeleteID).FirstOrDefault();
+            if (TecnicoToDelete != null)
             {
-                propuestaToUpdate.AsiganrTecnico.Remove(actorToDelete);
+                propuestaToUpdate.AsiganrTecnico.Remove(TecnicoToDelete);
             }
 
             try
@@ -139,7 +143,7 @@ public IEnumerable<Tecnico> AllTecnicos { get; set; }
             return Redirect(Request.Path + $"?id={id}");
         }
 
-        public async Task<IActionResult> OnPostAddActorAsync(int? id, int? tecnicoToAddID)
+        public async Task<IActionResult> OnPostAddTecnicoAsync(int? id, int? tecnicoToAddID)
         {
             Propuesta propuestaToUpdate = await _context.Propuesta
                 .Include(a => a.AsiganrTecnico)
@@ -187,4 +191,5 @@ public IEnumerable<Tecnico> AllTecnicos { get; set; }
         {
             return _context.Propuesta.Any(e => e.ID == id);
         }
+}
 }
