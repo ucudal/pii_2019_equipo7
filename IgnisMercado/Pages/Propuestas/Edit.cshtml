@@ -12,6 +12,7 @@
 <div class="row">
     <div class="col-md-4">
         <form method="post">
+            
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Propuesta.ID" />
             <div class="form-group">
@@ -28,7 +29,7 @@
                 <label asp-for="Propuesta.CostoEstimado" class="control-label"></label>
                 <input asp-for="Propuesta.CostoEstimado" class="form-control" />
                 <span asp-validation-for="Propuesta.CostoEstimado" class="text-danger"></span>
-            </div>
+            </div>o
             <div class="form-group">
                 <label asp-for="Propuesta.Estado" class="control-label"></label>
                 <input asp-for="Propuesta.Estado" class="form-control" />

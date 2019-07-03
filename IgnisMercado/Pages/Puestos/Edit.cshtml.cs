@@ -29,7 +29,7 @@ namespace IgnisMercado.Pages.Puestos
                 return NotFound();
             }
 
-            Puesto = await _context.Puesto.FirstOrDefaultAsync(m => m.PrpuestaID == id);
+            Puesto = await _context.Puesto.FirstOrDefaultAsync(m => m.PropuestaID == id);
 
             if (Puesto == null)
             {
@@ -53,7 +53,7 @@ namespace IgnisMercado.Pages.Puestos
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PuestoExists(Puesto.PrpuestaID))
+                if (!PuestoExists(Puesto.PropuestaID))
                 {
                     return NotFound();
                 }
@@ -68,7 +68,7 @@ namespace IgnisMercado.Pages.Puestos
 
         private bool PuestoExists(int id)
         {
-            return _context.Puesto.Any(e => e.PrpuestaID == id);
+            return _context.Puesto.Any(e => e.PropuestaID == id);
         }
     }
 }

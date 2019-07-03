@@ -17,6 +17,6 @@ namespace IgnisMercado.Models
         public Tecnico Tecnico { get; set; }
 
         [Required]
-        public Propuesta Prpuesta { get; set; }
+        public Propuesta Propuesta { get; set; }
     }
 }

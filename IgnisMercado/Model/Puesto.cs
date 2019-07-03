@@ -8,7 +8,7 @@ namespace IgnisMercado.Models
     public class Puesto
     {
         [Key]
-        public int PrpuestaID { get; set; }
+        public int PropuestaID { get; set; }
 
         [Display(Name = "Puesto")]
         public string TrabajoName { get; set; }

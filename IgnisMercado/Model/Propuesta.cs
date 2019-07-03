@@ -29,9 +29,30 @@ namespace IgnisMercado.Models
         
         [Display(Name = "Fecha Límite De La Propuesta")]
         public DateTime FechaLimite{get; private set;}
+
+        [Display(Name = "Horas")]
+        public int Horas {get;set;}
+
+        [Display(Name = "Nivel de Dificultad")]
+        public string NivelDeDificutad {get;set;}
+
         
+        public void HabilitarPropuesta()
+        {
+            this.Estado = "Abierto";
+        }
 
-
+        public void CalcularCostoPropuesta()
+        {
+            if (this.NivelDeDificutad == "Avanzado")
+            {
+                
+            }
+            
+        }
        
+        public const int PrecioHoraAvanzado = 150;
+
+        public const int PrecioHoraBasico = 160;
     }
 }
