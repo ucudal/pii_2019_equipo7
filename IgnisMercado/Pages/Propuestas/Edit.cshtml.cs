@@ -21,31 +21,104 @@ namespace IgnisMercado.Pages.Propuestas
 
         [BindProperty]
         public Propuesta Propuesta { get; set; }
-
+        
+public IEnumerable<Tecnico> AllTecnicos { get; set; }
+        public IEnumerable<Tecnico> Tecnicos { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string SearchString { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-
-            Propuesta = await _context.Propuesta.FirstOrDefaultAsync(m => m.ID == id);
-
+            Propuesta = await _context.Propuesta
+                .Where(m => m.ID == id)
+                .Include(l => l.Puesto)
+                .Include(c => c.AsiganrTecnico)
+                    .ThenInclude(a => a.Tecnico)
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
             if (Propuesta == null)
             {
                 return NotFound();
             }
+            this.Tecnicos = Propuesta.AsiganrTecnico
+                .Select(a => a.Tecnico);
+
+
+            string nameFilter = "";
+            if (this.SearchString != null)
+            {
+                nameFilter = this.SearchString.ToUpper();
+            }
+            this.AllTecnicos = await _context.Tecnico
+                .Where(a =>!Tecnicos.Contains(a))
+                .Where(a => !string.IsNullOrEmpty(nameFilter) ? a.Nombre.ToUpper().Contains(nameFilter) : true)
+                .ToListAsync();
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Attach(Propuesta).State = EntityState.Modified;
+            var propuestaToUpdate = await _context.Propuesta
+                .Include(l => l.Puesto)
+                .Include(a => a.AsiganrTecnico)
+                    .ThenInclude(a => a.Tecnico)
+                .FirstOrDefaultAsync(m => m.ID == id);
+
+
+            if (await TryUpdateModelAsync<Propuesta>(
+                propuestaToUpdate,
+                "Propuesta",
+                i => i.Title, i => i.ReleaseDate,
+                i => i.Price, i => i.Genre,
+                i => i.Puesto))
+            {
+                if (String.IsNullOrWhiteSpace(propuestaToUpdate.Puesto?.TrabajoName))
+                {
+                    propuestaToUpdate.Puesto = null;
+                }
+
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!PropuestaExists(Propuesta.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+            return RedirectToPage("./Index");
+        }
+
+        public async Task<IActionResult> OnPostDeleteActorAsync(int id, int actorToDeleteID)
+        {
+            Propuesta propuestaToUpdate = await _context.Propuesta
+                .Include(l => l.Puesto)
+                .Include(a => a.AsiganrTecnico)
+                    .ThenInclude(a => a.Actor)
+                .FirstOrDefaultAsync(m => m.ID == id);
+
+            await TryUpdateModelAsync<Propuesta>(propuestaToUpdate);
+
+            var actorToDelete = propuestaToUpdate.AsiganrTecnico.Where(a => a.ActorID == actorToDeleteID).FirstOrDefault();
+            if (actorToDelete != null)
+            {
+                propuestaToUpdate.AsiganrTecnico.Remove(actorToDelete);
+            }
 
             try
             {
@@ -63,12 +136,55 @@ namespace IgnisMercado.Pages.Propuestas
                 }
             }
 
-            return RedirectToPage("./Index");
+            return Redirect(Request.Path + $"?id={id}");
         }
 
-        private bool PropuestaExists(int id)
+        public async Task<IActionResult> OnPostAddActorAsync(int? id, int? tecnicoToAddID)
+        {
+            Propuesta propuestaToUpdate = await _context.Propuesta
+                .Include(a => a.AsiganrTecnico)
+                    .ThenInclude(a => a.Tecnico)
+                .FirstOrDefaultAsync(m => m.ID == Propuesta.ID);
+
+            await TryUpdateModelAsync<Propuesta>(propuestaToUpdate);
+
+
+            if (propuestaToUpdate != null)
+            {
+                Tecnico tecnicoToAdd = await _context.Tecnico.Where(a => a.ID == tecnicoToAddID).FirstOrDefaultAsync();
+                if (tecnicoToAdd != null)
+                {
+                    var AsiganrTecnicoToAdd = new AsiganrTecnico() {
+                        TecnicoID= tecnicoToAddID.Value,
+                        Tecnico = tecnicoToAdd,
+                        PropuestaID = propuestaToUpdate.ID,
+                        Prpuesta = propuestaToUpdate };
+                    propuestaToUpdate.AsiganrTecnico.Add(AsiganrTecnicoToAdd);
+                }
+            }
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!PropuestaExists(Propuesta.ID))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Redirect(Request.Path + $"?id={id}");
+
+    }
+
+            private bool PropuestaExists(int id)
         {
             return _context.Propuesta.Any(e => e.ID == id);
         }
-    }
 }

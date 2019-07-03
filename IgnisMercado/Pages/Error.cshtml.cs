@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace IgnisMercado.Pages
 {
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    [ResponseCache(Duration = 0, Puesto = ResponseCachePuesto.None, NoStore = true)]
     public class ErrorModel : PageModel
     {
         public string RequestId { get; set; }

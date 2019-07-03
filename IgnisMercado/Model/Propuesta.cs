@@ -27,9 +27,13 @@ namespace IgnisMercado.Models
         [Display(Name = "Empresa")]
         public Empresa Empresa {get;set;}
         
+        [Display(Name = "Puesto")]
+        public Puesto Puesto {get;set;}
+        
         [Display(Name = "Fecha Límite De La Propuesta")]
         public DateTime FechaLimite{get; private set;}
         
+        public IList<AsiganrTecnico> AsiganrTecnico { get; set; }
 
 
        
