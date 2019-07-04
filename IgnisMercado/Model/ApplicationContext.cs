@@ -29,6 +29,17 @@ namespace IgnisMercado.Models
 
         public DbSet<IgnisMercado.Models.AsiganrTecnico> AsiganrTecnico { get; set; }
 
+      
+      
+    
+      /*Utilizamos el patron  Demeter
+      
+      Asignar la responsabilidad de colaborar con objetos indirectos de un objeto dado a los objetos directos, para que ese
+objeto no necesite conocer a los objetos indirectos.
+
+       */
+      
+      
       public bool TecnicoExists(int id)
         {
             return this.Tecnico.Any(e => e.ID == id);
