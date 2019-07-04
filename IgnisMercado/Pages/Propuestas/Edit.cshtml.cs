@@ -14,7 +14,7 @@ namespace IgnisMercado.Pages.Propuestas
     {
         public List<SelectListItem> NivelesDif { get; }
         public int NiveleDif { get; }
-
+        public ICalculador Calculcosto;
         private readonly IgnisMercado.Models.ApplicationContext _context;
 
         public EditModel(IgnisMercado.Models.ApplicationContext context)
@@ -68,7 +68,7 @@ namespace IgnisMercado.Pages.Propuestas
                 .ToListAsync();
             return Page();
         }
-
+        
         public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (!ModelState.IsValid)
@@ -104,9 +104,33 @@ namespace IgnisMercado.Pages.Propuestas
 
 
                
-                  propuestaToUpdate.NivelDeDificutad = IgnisData.NivelesDeDificultad[NiveleDif];
-            _context.Attach(propuestaToUpdate).State = EntityState.Modified;
+                  Propuesta.NivelDeDificutad = IgnisData.NivelesDeDificultad[NiveleDif];
 
+              
+                /*Utilizamos el patron de polimorfismo ya que como las clases CalculadorBasico y CalculadorAvanzado inplmentan la inteface ICalcular realiza una operacion, la clase que se instancie cambara el precio hora.  */
+                
+                if(IgnisData.NivelesDeDificultad[NiveleDif]==IgnisData.NivelesDeDificultad[0]){
+                     this.Calculcosto = new CalculadorBasico(Propuesta);
+                    }
+                else if (IgnisData.NivelesDeDificultad[NiveleDif]==IgnisData.NivelesDeDificultad[1]){
+
+                     this.Calculcosto = new CalculadorAvanzado(Propuesta);
+                     
+                }
+
+                 /*Caprurams la excepción que puede causar si  no se recibe el valor correcto desde l form y redirigimos a la index  */
+                try {
+                    Propuesta.CostoEstimado= this.Calculcosto.Calcular();
+
+                }
+                catch{
+                        return NotFound();
+                }
+
+
+            _context.Attach(propuestaToUpdate).State = EntityState.Modified;
+            
+           
                 try
                 {
                     await _context.SaveChangesAsync();

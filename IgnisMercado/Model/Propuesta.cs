@@ -17,7 +17,7 @@ namespace IgnisMercado.Models
         [Display(Name = "Estimado De Hora")]
         public int EstimadoDeHora { get; set; }
         [Display(Name = "Costo Estimado")]
-        public int CostoEstimado { get; private set; }
+        public int CostoEstimado { get; set; }
         [Display(Name = "Estado")]
         public string Estado{ get; private set; }
         [Display(Name = "Descripcion De La Propuesta")]
@@ -44,17 +44,5 @@ namespace IgnisMercado.Models
             this.Estado = "Abierto";
         }
 
-        public void CalcularCostoPropuesta()
-        {
-            if (this.NivelDeDificutad == "Avanzado")
-            {
-
-            }
-
-        }
-
-        public const int PrecioHoraAvanzado = 150;
-
-        public const int PrecioHoraBasico = 160;
     }
 }
