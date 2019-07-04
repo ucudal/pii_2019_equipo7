@@ -9,15 +9,17 @@ namespace IgnisMercado.Models
         {   
 
             this.Propuesta = Propuesta;
-
+            this.precioHora= 300;
         
         }
 
-        public int precioHora { get; set; }
+        public int precioHora { get ; set; }
 
         public int Calcular()
         {
-            return  this.Propuesta.Horas * this.precioHora;
+            return  this.Propuesta.EstimadoDeHora * this.precioHora;
         }
+
+ 
     }
 }

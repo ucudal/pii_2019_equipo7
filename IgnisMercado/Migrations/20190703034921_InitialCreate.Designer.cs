@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IgnisMercado.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20190703001806_InitialCreate")]
+    [Migration("20190703034921_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -128,8 +128,6 @@ namespace IgnisMercado.Migrations
 
                     b.Property<DateTime>("FechaLimite");
 
-                    b.Property<int>("Horas");
-
                     b.Property<string>("NivelDeDificutad");
 
                     b.Property<int?>("TecnicoAsignadoID");
@@ -147,16 +145,11 @@ namespace IgnisMercado.Migrations
 
             modelBuilder.Entity("IgnisMercado.Models.Puesto", b =>
                 {
-                    b.Property<int>("PropuestaID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("PropuestaID1");
+                    b.Property<int>("PropuestaID");
 
                     b.Property<string>("TrabajoName");
 
                     b.HasKey("PropuestaID");
-
-                    b.HasIndex("PropuestaID1");
 
                     b.ToTable("Puesto");
                 });
@@ -165,6 +158,8 @@ namespace IgnisMercado.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("BirthDate");
 
                     b.Property<string>("Contacto");
 
@@ -295,7 +290,7 @@ namespace IgnisMercado.Migrations
             modelBuilder.Entity("IgnisMercado.Models.AsiganrTecnico", b =>
                 {
                     b.HasOne("IgnisMercado.Models.Propuesta", "Propuesta")
-                        .WithMany()
+                        .WithMany("AsiganrTecnico")
                         .HasForeignKey("PropuestaID1")
                         .OnDelete(DeleteBehavior.Cascade);
 
@@ -319,8 +314,9 @@ namespace IgnisMercado.Migrations
             modelBuilder.Entity("IgnisMercado.Models.Puesto", b =>
                 {
                     b.HasOne("IgnisMercado.Models.Propuesta", "Propuesta")
-                        .WithMany()
-                        .HasForeignKey("PropuestaID1");
+                        .WithOne("Puesto")
+                        .HasForeignKey("IgnisMercado.Models.Puesto", "PropuestaID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

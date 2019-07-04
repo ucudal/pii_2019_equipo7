@@ -13,7 +13,10 @@ namespace IgnisMercado.Models
         [Display(Name = "Nivel Educativo")]
         public string NivelEducativo { get; set; }
        
-       
+        [Display(Name = "Birth Date")]
+        [DataType(DataType.Date)]
+        public DateTime BirthDate { get; set; }
+    
     }  
     
 }

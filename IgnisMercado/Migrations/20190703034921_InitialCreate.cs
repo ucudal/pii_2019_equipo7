@@ -76,7 +76,8 @@ namespace IgnisMercado.Migrations
                     Nombre = table.Column<string>(nullable: true),
                     Contacto = table.Column<string>(nullable: true),
                     Edad = table.Column<int>(nullable: false),
-                    NivelEducativo = table.Column<string>(nullable: true)
+                    NivelEducativo = table.Column<string>(nullable: true),
+                    BirthDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -203,7 +204,6 @@ namespace IgnisMercado.Migrations
                     TecnicoAsignadoID = table.Column<int>(nullable: true),
                     EmpresaID = table.Column<int>(nullable: true),
                     FechaLimite = table.Column<DateTime>(nullable: false),
-                    Horas = table.Column<int>(nullable: false),
                     NivelDeDificutad = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -253,20 +253,18 @@ namespace IgnisMercado.Migrations
                 name: "Puesto",
                 columns: table => new
                 {
-                    PropuestaID = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    TrabajoName = table.Column<string>(nullable: true),
-                    PropuestaID1 = table.Column<int>(nullable: true)
+                    PropuestaID = table.Column<int>(nullable: false),
+                    TrabajoName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Puesto", x => x.PropuestaID);
                     table.ForeignKey(
-                        name: "FK_Puesto_Propuesta_PropuestaID1",
-                        column: x => x.PropuestaID1,
+                        name: "FK_Puesto_Propuesta_PropuestaID",
+                        column: x => x.PropuestaID,
                         principalTable: "Propuesta",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -320,11 +318,6 @@ namespace IgnisMercado.Migrations
                 name: "IX_Propuesta_TecnicoAsignadoID",
                 table: "Propuesta",
                 column: "TecnicoAsignadoID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Puesto_PropuestaID1",
-                table: "Puesto",
-                column: "PropuestaID1");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

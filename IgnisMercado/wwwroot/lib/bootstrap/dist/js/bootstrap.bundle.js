@@ -3,10 +3,10 @@
   * Copyright 2011-2018 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
-(function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'jquery'], factory) :
-  (factory((global.bootstrap = {}),global.jQuery));
+(function (global, fTecnicoy) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? fTecnicoy(exports, require('jquery')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'jquery'], fTecnicoy) :
+  (fTecnicoy((global.bootstrap = {}),global.jQuery));
 }(this, (function (exports,$) { 'use strict';
 
   $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
@@ -3817,7 +3817,7 @@
         _this.options.modifiers[name] = _extends({}, Popper.Defaults.modifiers[name] || {}, options.modifiers ? options.modifiers[name] : {});
       });
 
-      // Refactoring modifiers' list (Object => Array)
+      // RefTecnicoing modifiers' list (Object => Array)
       this.modifiers = Object.keys(this.options.modifiers).map(function (name) {
         return _extends({
           name: name
@@ -4807,7 +4807,7 @@
         }
       }; // ----------------------------------------------------------------------
       // the following methods are used to handle overflowing modals
-      // todo (fat): these should probably be refactored out of modal.js
+      // todo (fat): these should probably be refTecnicoed out of modal.js
       // ----------------------------------------------------------------------
 
 

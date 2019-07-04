@@ -31,6 +31,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Propuesta[0].FechaLimite)
             </th>
+                        <th>
+                @Html.DisplayNameFor(model => model.Propuesta[0].NivelDeDificutad)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -54,6 +57,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FechaLimite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NivelDeDificutad)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

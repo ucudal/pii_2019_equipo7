@@ -11,29 +11,29 @@
  *
  * Date: 2018-01-20T17:24Z
  */
-( function( global, factory ) {
+( function( global, fTecnicoy ) {
 
 	"use strict";
 
 	if ( typeof module === "object" && typeof module.exports === "object" ) {
 
 		// For CommonJS and CommonJS-like environments where a proper `window`
-		// is present, execute the factory and get jQuery.
+		// is present, execute the fTecnicoy and get jQuery.
 		// For environments that do not have a `window` with a `document`
-		// (such as Node.js), expose a factory as module.exports.
+		// (such as Node.js), expose a fTecnicoy as module.exports.
 		// This accentuates the need for the creation of a real `window`.
 		// e.g. var jQuery = require("jquery")(window);
 		// See ticket #14549 for more info.
 		module.exports = global.document ?
-			factory( global, true ) :
+			fTecnicoy( global, true ) :
 			function( w ) {
 				if ( !w.document ) {
 					throw new Error( "jQuery requires a window with a document" );
 				}
-				return factory( w );
+				return fTecnicoy( w );
 			};
 	} else {
-		factory( global );
+		fTecnicoy( global );
 	}
 
 // Pass this if window is not defined yet
@@ -3772,7 +3772,7 @@ jQuery.extend( {
 			// the master Deferred
 			master = jQuery.Deferred(),
 
-			// subordinate callback factory
+			// subordinate callback fTecnicoy
 			updateFunc = function( i ) {
 				return function( value ) {
 					resolveContexts[ i ] = this;
@@ -8605,8 +8605,8 @@ function inspectPrefiltersOrTransports( structure, options, originalOptions, jqX
 	function inspect( dataType ) {
 		var selected;
 		inspected[ dataType ] = true;
-		jQuery.each( structure[ dataType ] || [], function( _, prefilterOrFactory ) {
-			var dataTypeOrTransport = prefilterOrFactory( options, originalOptions, jqXHR );
+		jQuery.each( structure[ dataType ] || [], function( _, prefilterOrFTecnicoy ) {
+			var dataTypeOrTransport = prefilterOrFTecnicoy( options, originalOptions, jqXHR );
 			if ( typeof dataTypeOrTransport === "string" &&
 				!seekingTransport && !inspected[ dataTypeOrTransport ] ) {
 
