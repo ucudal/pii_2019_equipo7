@@ -54,7 +54,7 @@ namespace IgnisMercado.Models
 
             .AddRange(
                 new Empresa
-                {
+                {      
                     Director = "Battista Farina",
                     Descricpion = "Firma de diseño automotriz.",
                     Nombre = "Pininfarina",

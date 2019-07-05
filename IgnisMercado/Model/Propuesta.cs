@@ -10,7 +10,7 @@ namespace IgnisMercado.Models
         
         [Key]
         public  int ID { get; set; }
-        [Display(Name = "Title")]
+        [Display(Name = "Titulo")]
         public string Title { get; set; }
 
         [Display(Name = "Estimado De Hora")]
