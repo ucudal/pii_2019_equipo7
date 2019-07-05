@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using IgnisMercado.Data;
 
 namespace IgnisMercado.Models
-{
+{/*Creamos esta clase abstacta para no  duplicar codigo, al definirla como abtracta no se puede instanciar */
     public abstract class User
     {
       [Key]

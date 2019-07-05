@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using IgnisMercado.Data;
 
 namespace IgnisMercado.Models
-{
+{/*Utilizamos herencia para reaulizar lo las prpiedades de la calse User */
     public class Tecnico : User
     {
         [Display(Name = "Edad")]
