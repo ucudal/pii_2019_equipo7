@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IgnisMercado.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20190703034921_InitialCreate")]
+    [Migration("20190705021127_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -140,7 +140,7 @@ namespace IgnisMercado.Migrations
 
                     b.HasIndex("TecnicoAsignadoID");
 
-                    b.ToTable("Propuesta");
+                    b.ToTable("Propuestas");
                 });
 
             modelBuilder.Entity("IgnisMercado.Models.Puesto", b =>

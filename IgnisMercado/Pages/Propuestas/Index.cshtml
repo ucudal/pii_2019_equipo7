@@ -14,31 +14,32 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Propuesta[0].Title)
+            Title
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Propuesta[0].EstimadoDeHora)
+            Estimado de Hora
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Propuesta[0].CostoEstimado)
+            Costo Estimado
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Propuesta[0].Estado)
+            Estado
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Propuesta[0].DescripcionDeLaPropuesta)
+            Descripcion de la Propuesta
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Propuesta[0].FechaLimite)
+            Fecha Limite
             </th>
-                        <th>
-                @Html.DisplayNameFor(model => model.Propuesta[0].NivelDeDificutad)
+            <th>
+            Nivel de Dificultad
             </th>
+            <th>Puesto</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Propuesta) {
+@foreach (var item in Model.Propuesta.Propuestas) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
@@ -62,6 +63,13 @@
                 @Html.DisplayFor(modelItem => item.NivelDeDificutad)
             </td>
             <td>
+                    @if (item.Puesto != null)
+                    {
+                        @item.Puesto.TrabajoName
+                    }
+            </td>
+            <td>
+                <a asp-page="./Index" asp-route-id="@item.ID">Select</a>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>

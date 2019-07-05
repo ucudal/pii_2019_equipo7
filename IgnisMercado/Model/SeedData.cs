@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 
 namespace IgnisMercado.Models
@@ -14,34 +15,54 @@ namespace IgnisMercado.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<ApplicationContext>>()))
             {
-                SeedPropuesta(context);
+                SeedPropuestas(context);
                 SeedEmpresa(context);
+                SeedTecnicos(context);
+                SeedPuestos(context);
             }
         }
-        private static void SeedPropuesta(ApplicationContext context)
+        private static void SeedPropuestas(ApplicationContext context)
         {
             // Busca Propuestas.
-            if (context.Propuesta.Any())
+            if (context.Propuestas.Any())
             {
                 return;   // DB ha sido poblada.
             }
-            context.Propuesta
+            context.Propuestas.AddRange(GetSeedingPropuestas());
+            context.SaveChanges();
 
-
-
-            .AddRange(
+        }
+            public static List<Propuesta> GetSeedingPropuestas()
+            { 
+                return new List<Propuesta>()
+                { 
                 new Propuesta
                 {
+                    ID = 1,
                     Title = "Propuesta Laboral para Camarografo",
                     EstimadoDeHora = 12,
                     DescripcionDeLaPropuesta = "Se necesita camarografo con nivel avanzado para realizar un filme corto."
+                },
+                new Propuesta
+                {
+                    ID = 2,
+                    Title = "Propuesta Laboral para Director",
+                    EstimadoDeHora = 20,
+                    DescripcionDeLaPropuesta = "Se solicita director con nivel avanzado para dirigir un filme corto."
+                },
+                new Propuesta
+                {
+                    ID = 3,
+                    Title = "Propuesta Laboral para ayudante de Director",
+                    EstimadoDeHora = 15,
+                    DescripcionDeLaPropuesta = "Se necesita director con nivel básico para hacer de ayudante en filme corto."
                 }
 
-            );
-            context.SaveChanges();
+            };
 
 
         }
+
 
         private static void SeedEmpresa(ApplicationContext context)
         {
@@ -81,7 +102,11 @@ namespace IgnisMercado.Models
                     Contacto = "+3 666 888 555 "
                 }
             );
-            
+
+        }
+
+        private static void SeedTecnicos(ApplicationContext context)
+        {
             if (context.Tecnico.Any())
             {
                 return;   // DB ha sido poblada.
@@ -124,10 +149,38 @@ namespace IgnisMercado.Models
                 }
             );
             context.SaveChanges();
-
         }
 
-
+        private static void SeedPuestos(ApplicationContext context)
+        {
+            if (context.Puesto.Any())
+            {
+                return;   // DB ha sido poblada.
+            }
+            context.Puesto.AddRange(GetSeedingPuestos(context));
+            context.SaveChanges();     
+        }
+         public static List<Puesto> GetSeedingPuestos(ApplicationContext context)
+        {
+            return new List<Puesto>()
+            {
+                new Puesto
+                {
+                    PropuestaID = context.Propuestas.Single(m => m.Title == "Propuesta Laboral para Camarografo").ID,
+                    TrabajoName = "Camarografo"
+                },
+                new Puesto
+                {
+                    PropuestaID = context.Propuestas.Single(m => m.Title == "Propuesta Laboral para Director").ID,
+                    TrabajoName = "Director"
+                },
+                new Puesto
+                {
+                    PropuestaID = context.Propuestas.Single(m => m.Title == "Propuesta Laboral para ayudante de Director").ID,
+                    TrabajoName = "Director"
+                }
+            };
+        }
 
     }
 }
