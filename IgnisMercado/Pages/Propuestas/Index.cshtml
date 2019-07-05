@@ -69,7 +69,7 @@
                     }
             </td>
             <td>
-                <a asp-page="./Index" asp-route-id="@item.ID">Select</a>
+                <a asp-page="./Index" asp-route-id="@item.ID">Select</a> |
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
@@ -78,3 +78,32 @@
 }
     </tbody>
 </table>
+@if (Model.Propuesta.Tecnicos != null)
+{
+    <h3>Técnicos Asignados</h3>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Birth Data</th>
+            <th>Awards</th>
+        </tr>
+
+        @foreach (var item in Model.Propuesta.Tecnicos)
+        {
+            string selectedRow = "";
+            <tr class="@selectedRow">
+                <td>
+                    @Html.ActionLink("Close", "OnGetAsync",
+                                  new { tecnicoID = item.ID })
+                </td>
+                <td>
+                    @item.Nombre
+                </td>
+                <td>
+                    @item.BirthDate
+                </td>
+            </tr>
+        }
+    </table>
+}
