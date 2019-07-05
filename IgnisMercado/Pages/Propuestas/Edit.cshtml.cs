@@ -42,7 +42,7 @@ namespace IgnisMercado.Pages.Propuestas
                 return NotFound();
             }
             
-            Propuesta = await _context.Propuesta
+            Propuesta = await _context.Propuestas
                 .Where(m => m.ID == id)
                 .Include(l => l.Puesto)
                 .Include(c => c.AsiganrTecnico)
@@ -76,7 +76,7 @@ namespace IgnisMercado.Pages.Propuestas
                 return Page();
             }
 
-            var propuestaToUpdate = await _context.Propuesta
+            var propuestaToUpdate = await _context.Propuestas
                 .Include(l => l.Puesto)
                 .Include(a => a.AsiganrTecnico)
                     .ThenInclude(a => a.Tecnico)
@@ -152,7 +152,7 @@ namespace IgnisMercado.Pages.Propuestas
 
         public async Task<IActionResult> OnPostDeleteTecnicoAsync(int id, int TecnicoToDeleteID)
         {
-            Propuesta propuestaToUpdate = await _context.Propuesta
+            Propuesta propuestaToUpdate = await _context.Propuestas
                 .Include(l => l.Puesto)
                 .Include(a => a.AsiganrTecnico)
                     .ThenInclude(a => a.Tecnico)
@@ -187,7 +187,7 @@ namespace IgnisMercado.Pages.Propuestas
 
         public async Task<IActionResult> OnPostAddTecnicoAsync(int? id, int? tecnicoToAddID)
         {
-            Propuesta propuestaToUpdate = await _context.Propuesta
+            Propuesta propuestaToUpdate = await _context.Propuestas
                 .Include(a => a.AsiganrTecnico)
                     .ThenInclude(a => a.Tecnico)
                 .FirstOrDefaultAsync(m => m.ID == Propuesta.ID);
@@ -231,7 +231,7 @@ namespace IgnisMercado.Pages.Propuestas
 
             private bool PropuestaExists(int id)
         {
-            return _context.Propuesta.Any(e => e.ID == id);
+            return _context.Propuestas.Any(e => e.ID == id);
         }
 }
 }

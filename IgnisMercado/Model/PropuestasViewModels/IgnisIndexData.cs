@@ -8,11 +8,11 @@ namespace IgnisMercado.Models.IgnisViewModel
 {
     public class IgnisIndexData
     {
-        public IEnumerable<Propuesta> Propuesta { get; set; }
+        public IEnumerable<Propuesta> Propuestas { get; set; }
         
         public IEnumerable<Tecnico> Tecnicos  { get; set; }
 
-        
+        public IEnumerable<AsiganrTecnico> Asignados { get; set; }        
        
     }
 }

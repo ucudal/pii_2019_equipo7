@@ -138,7 +138,7 @@ namespace IgnisMercado.Migrations
 
                     b.HasIndex("TecnicoAsignadoID");
 
-                    b.ToTable("Propuesta");
+                    b.ToTable("Propuestas");
                 });
 
             modelBuilder.Entity("IgnisMercado.Models.Puesto", b =>

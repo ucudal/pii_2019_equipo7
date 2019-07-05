@@ -19,7 +19,7 @@ namespace IgnisMercado.Models
         [Display(Name = "Costo Estimado")]
         public int CostoEstimado { get; set; }
         [Display(Name = "Estado")]
-        public string Estado{ get; private set; }
+        public string Estado { get; private set; }
         [Display(Name = "Descripcion De La Propuesta")]
         public string DescripcionDeLaPropuesta { get; set; }    
         [Display(Name = "Tecnico Asignado")]
@@ -44,5 +44,11 @@ namespace IgnisMercado.Models
             this.Estado = "Abierto";
         }
 
+        public void CerrarPropuesta()
+        {
+            this.Estado = "Cerrado";
+        }
+
+        
     }
 }

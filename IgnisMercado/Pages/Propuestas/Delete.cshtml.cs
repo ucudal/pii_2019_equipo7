@@ -28,7 +28,7 @@ namespace IgnisMercado.Pages.Propuestas
                 return NotFound();
             }
 
-            Propuesta = await _context.Propuesta.FirstOrDefaultAsync(m => m.ID == id);
+            Propuesta = await _context.Propuestas.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Propuesta == null)
             {
@@ -44,11 +44,11 @@ namespace IgnisMercado.Pages.Propuestas
                 return NotFound();
             }
 
-            Propuesta = await _context.Propuesta.FindAsync(id);
+            Propuesta = await _context.Propuestas.FindAsync(id);
 
             if (Propuesta != null)
             {
-                _context.Propuesta.Remove(Propuesta);
+                _context.Propuestas.Remove(Propuesta);
                 await _context.SaveChangesAsync();
             }
 

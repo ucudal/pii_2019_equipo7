@@ -22,7 +22,7 @@ namespace IgnisMercado.Models
              builder.Entity<AsiganrTecnico>().ToTable("AsiganrTecnico")
                  .HasKey(a => new { a.TecnicoID, a.PropuestaID });
         }
-        public DbSet<IgnisMercado.Models.Propuesta> Propuesta { get; set; }
+        public DbSet<IgnisMercado.Models.Propuesta> Propuestas { get; set; }
         public DbSet<IgnisMercado.Models.Tecnico> Tecnico { get; set; }
         public DbSet<IgnisMercado.Models.Empresa> Empresa { get; set; }
         public DbSet<IgnisMercado.Models.Puesto> Puesto { get; set; }
